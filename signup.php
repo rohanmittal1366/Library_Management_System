@@ -14,12 +14,11 @@
     <link rel="stylesheet" type="text/css" href="bootstrap-5.0.0-beta2-dist/css\bootstrap.min.css">
     <script type="text/javascript" src="bootstrap-5.0.0-beta2-dist/js/bootstrap.min.js"></script>
     <style type="text/css">
-        #side_bar
-        {
+        #side_bar {
             background-color: whitesmoke;
             padding: 50px;
-            width : 300px;
-            height:450 px;
+            width: 300px;
+            height: 450 px;
         }
     </style>
 </head>
@@ -55,47 +54,49 @@
             <h5>Library Timing</h5>
             <ul>
 
-                <li>Opening Timing:8:00 AM</li> 
-                <li>Closing Timing:8:00 PM</li> 
-                <li>(Sunday Off)</li>    
+                <li>Opening Timing:8:00 AM</li>
+                <li>Closing Timing:8:00 PM</li>
+                <li>(Sunday Off)</li>
             </ul>
             <h5>What we Provide</h5>
             <ul>
 
-                <li>Full Ferniture</li> 
-                <li>Free Wi-Fi</li> 
+                <li>Full Ferniture</li>
+                <li>Free Wi-Fi</li>
                 <li>News Paper</li>
-                <li>Discussion Room</li> 
-                <li>RO Water</li> 
-                <li>Peacefull Environment</li>    
+                <li>Discussion Room</li>
+                <li>RO Water</li>
+                <li>Peacefull Environment</li>
             </ul>
         </div>
         <div class="col-md-8" id="main_content">
-            <center><h3>User Registration</h3></center>
-            <form action ="register.php" method="post">
-            <div class="form-group">
-                <label for ="name">Full Name:</label>
-                <input type="text" name="name" class="form-control" required>
+            <center>
+                <h3>User Registration</h3>
+            </center>
+            <form action="register.php" method="post">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" name="name" class="form-control" required>
 
-                <label for ="name">Email ID:</label>
-                <input type="text" name="email" class="form-control" required>
+                    <label for="name">Email ID:</label>
+                    <input type="text" name="email" class="form-control" required>
 
-                <label for ="name">Password:</label>
-                <input type="password" name="password" class="form-control" required>
+                    <label for="name">Password:</label>
+                    <input type="password" name="password" class="form-control" required>
 
-                <label for ="name">Mobile Number:</label>
-                <input type="text" name="mobile" class="form-control" required>
+                    <label for="name">Mobile Number:</label>
+                    <input type="text" name="mobile" class="form-control" required>
 
-                <label for ="name">Address:</label>
-                <textarea rows="3" cols="40" class="form-control" name="address"></textarea>
+                    <label for="name">Address:</label>
+                    <textarea rows="3" cols="40" class="form-control" name="address"></textarea>
 
-            </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
             </form>
         </div>
     </div>
 
-    
+
 
 </body>
 
