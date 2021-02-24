@@ -1,5 +1,19 @@
 <?php
 session_start();
+$connection = mysqli_connect("localhost", "root", "");
+$db = mysqli_select_db($connection, "lms");
+$name = "";
+$email = "";
+$mobile = "";
+$address = "";
+$query = "select * from users where email = '$_SESSION[email]'";
+$query_run = mysqli_query($connection, $query);
+while ($row = mysqli_fetch_assoc($query_run)) {
+    $name = $row['name'];
+    $email = $row['email'];
+    $mobile = $row['mobile'];
+    $address = $row['address'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -12,9 +26,9 @@ session_start();
     <meta charset="utf-8" name="viewport" content="width=device-width,intial-scale=1">
     <!-- <link rel="stylesheet" type="text/css" href="bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <script type="text/javascript" src="bootstrap-4.4.1/js/juqery_latest.js"></script>
-    <script type="text/javascript" src="bootstrap-4.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="bootstrap-5.0.0-beta2-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-4.4.1/js/juqery_latest.js"></script>
+    <script type="text/javascript" src="../bootstrap-4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-5.0.0-beta2-dist/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style type="text/css">
@@ -32,7 +46,7 @@ session_start();
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">Library Management System(LMS)</a>
+                <a class="navbar-brand" href="user_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
                 <span>
@@ -75,8 +89,29 @@ session_start();
         <marquee> This is Library Management System. </marquee>
     </span><br>
     <div class="row">
-        <div class="col-md-3">
-
+        <div class="col-md-4"> </div>
+        <div class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <label>Name: </label>
+                    <input type="text" class="form-control" value="<?php echo $name; ?>" disabled>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Email: </label>
+                    <input type="text" class="form-control" value="<?php echo $email; ?>" disabled>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Mobile: </label>
+                    <input type="text" class="form-control" value="<?php echo $mobile; ?>" disabled>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Address: </label>
+                    <textarea rows="3" cols="40" disabled="" class="form-control"><?php echo $address; ?></textarea>
+                </div>
+            </form>
         </div>
     </div>
 

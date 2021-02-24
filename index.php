@@ -96,7 +96,7 @@
                             $_SESSION['name'] = $row['name'];
                             $_SESSION['email'] = $row['email'];
                             $_SESSION['id'] = $row['id'];
-                            header("Location:user_dashboard.php");
+                            header("Location:./User/user_dashboard.php");
                         } else {
             ?>
                             <br><br>
