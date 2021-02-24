@@ -69,7 +69,46 @@ session_start();
                     </a></li>
             </ul>
         </div>
-    </nav><br>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-center">
+                <li class="nav-item">
+                    <a href="admin_dashboard.php" class="nav-link">
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Book </a>
+                    <div class="dropdown-menu">
+                        <a href="" class="dropdown-item">Add New Book</a>
+                        <a href="" class="dropdown-item">Manage Book</a>
+                    </div>   
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Category </a>
+                    <div class="dropdown-menu">
+                        <a href="" class="dropdown-item">Add New Category</a>
+                        <a href="" class="dropdown-item">Manage Category</a>
+                    </div>   
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Author</a>
+                    <div class="dropdown-menu">
+                        <a href="" class="dropdown-item">Add New Author</a>
+                        <a href="" class="dropdown-item">Manage Author</a>
+                    </div>   
+                </li>
+                <li class="nav-item">
+                    <a href="admin_dashboard.php" class="nav-link">
+                        Issue Book
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
 
     <span>
         <marquee> This is Library Management System. </marquee>
