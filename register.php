@@ -9,5 +9,5 @@ $mysql_run = mysqli_query($connection, $query);
 ?>
 <script type="text/javascript">
     alert("Registration is successfull ... You may login now.")
-    window.location.href = "index.php";
+    window.location.href = "./index.php";
 </script>

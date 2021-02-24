@@ -78,7 +78,7 @@ while ($row = mysqli_fetch_assoc($query_run)) {
                         </a>
                     </div>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="logout.php">
+                <li class="nav-item"><a class="nav-link" href="../logout.php">
                         Logout
                     </a></li>
             </ul>
