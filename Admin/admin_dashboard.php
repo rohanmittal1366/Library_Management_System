@@ -1,4 +1,5 @@
 <?php
+require('function.php');
 session_start();
 
 ?>
@@ -32,7 +33,7 @@ session_start();
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="admin_dasboard.php">Library Management System(LMS)</a>
+                <a class="navbar-brand" href="admin_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
                 <span>
@@ -84,21 +85,21 @@ session_start();
                     <div class="dropdown-menu">
                         <a href="" class="dropdown-item">Add New Book</a>
                         <a href="" class="dropdown-item">Manage Book</a>
-                    </div>   
+                    </div>
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Category </a>
                     <div class="dropdown-menu">
                         <a href="" class="dropdown-item">Add New Category</a>
                         <a href="" class="dropdown-item">Manage Category</a>
-                    </div>   
+                    </div>
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Author</a>
                     <div class="dropdown-menu">
                         <a href="" class="dropdown-item">Add New Author</a>
                         <a href="" class="dropdown-item">Manage Author</a>
-                    </div>   
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="admin_dashboard.php" class="nav-link">
@@ -115,7 +116,51 @@ session_start();
     </span><br>
     <div class="row">
         <div class="col-md-3">
+            <div class="card bg-light" style="width: 300px;">
+                <div class="card-header">Registered Users: </div>
+                <div class="card-body">
+                    <p class="card-text">Total no. of users: <?php echo get_user_count(); ?> </p>
+                    <a href="" class="btn btn-danger" target="_blank">View Registered Users</a>
+                </div>
+            </div>
 
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-light" style="width: 300px;">
+                <div class="card-header">Registered Books: </div>
+                <div class="card-body">
+                    <p class="card-text">Total no. of available Books: <?php echo get_book_count(); ?></p>
+                    <a href="" class="btn btn-primary" target="_blank">View Available Books</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-light" style="width: 300px;">
+                <div class="card-header">Registered Category: </div>
+                <div class="card-body">
+                    <p class="card-text">Total no. of book's category: <?php echo get_category_count(); ?></p>
+                    <a href="" class="btn btn-danger" target="_blank">View Category</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-light" style="width: 300px;">
+                <div class="card-header">Registered Authors: </div>
+                <div class="card-body">
+                    <p class="card-text">Total no. of Authors: <?php echo get_author_count(); ?></p>
+                    <a href="" class="btn btn-primary" target="_blank">View Registered Authors</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-light" style="width: 300px;">
+                <div class="card-header">Issued Books: </div>
+                <div class="card-body">
+                    <p class="card-text">Total no. of issued Books: <?php echo get_issued_book_count(); ?> </p>
+                    <a href="" class="btn btn-primary" target="_blank">View Issued Books</a>
+                </div>
+            </div>
         </div>
     </div>
 
