@@ -1,5 +1,19 @@
 <?php
 session_start();
+$connection = mysqli_connect("localhost", "root", "");
+$db = mysqli_select_db($connection, "lms");
+$name = "";
+$email = "";
+$mobile = "";
+
+$query = "select * from admins where email = '$_SESSION[email]'";
+$query_run = mysqli_query($connection, $query);
+while ($row = mysqli_fetch_assoc($query_run)) {
+    $name = $row['name'];
+    $email = $row['email'];
+    $mobile = $row['mobile'];
+   
+}
 
 ?>
 <!DOCTYPE html>
@@ -32,7 +46,7 @@ session_start();
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="admin_dasboard.php">Library Management System(LMS)</a>
+                <a class="navbar-brand" href="admin_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
                 <span>
@@ -43,7 +57,7 @@ session_start();
             <font style="color: white">
                 <span>
                     <strong>
-                        EMAIL : <?php echo $_SESSION['email']; ?></strong>
+                        EMAIL : <?php echo $_SESSION['name']; ?></strong>
                 </span>
             </font>
 
@@ -75,8 +89,26 @@ session_start();
         <marquee> This is Library Management System. </marquee>
     </span><br>
     <div class="row">
-        <div class="col-md-3">
-
+        <div class="col-md-4"> </div>
+        <div class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <label>Name: </label>
+                    <input type="text" class="form-control" value="<?php echo $name; ?>" disabled>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Email: </label>
+                    <input type="text" class="form-control" value="<?php echo $email; ?>" disabled>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Mobile: </label>
+                    <input type="text" class="form-control" value="<?php echo $mobile; ?>" disabled>
+                </div>
+                <br>
+               
+            </form>
         </div>
     </div>
 

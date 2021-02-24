@@ -28,11 +28,11 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="../index.php">Library Management System(LMS)</a>
+                <a class="navbar-brand" href="admin_dashboard">Library Management System(LMS)</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item">
-                    <a class="nav-link" href="./Admin/admin.php">Admin Login</a>
+                    <a class="nav-link" href="admin.php">Admin Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../User/user_login.php">User Login</a>
@@ -102,7 +102,7 @@
                             $_SESSION['name'] = $row['name'];
                             $_SESSION['email'] = $row['email'];
                             $_SESSION['id'] = $row['id'];
-                            header("Location:./Admin/admin_dashboard.php");
+                            header("Location: admin_dashboard.php");
                         } else {
                         ?>
                             <br><br>

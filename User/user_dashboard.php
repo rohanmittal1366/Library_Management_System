@@ -32,7 +32,7 @@ session_start();
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="../User/user_dashboard.php">Library Management System(LMS)</a>
+                <a class="navbar-brand" href="user_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
                 <span>

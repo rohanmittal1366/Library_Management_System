@@ -23,7 +23,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="../index.php">Library Management System(LMS)</a>
+                <a class="navbar-brand" href="user_dashboard">Library Management System(LMS)</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item">

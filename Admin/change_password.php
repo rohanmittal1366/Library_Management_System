@@ -3,9 +3,7 @@ session_start();
 
 ?>
 <!DOCTYPE html>
-
 <html>
-
 <head>
 
 
@@ -32,7 +30,7 @@ session_start();
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="admin_dasboard.php">Library Management System(LMS)</a>
+                <a class="navbar-brand" href="admin_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
                 <span>
@@ -43,7 +41,7 @@ session_start();
             <font style="color: white">
                 <span>
                     <strong>
-                        EMAIL : <?php echo $_SESSION['email']; ?></strong>
+                        EMAIL : <?php echo $_SESSION['name']; ?></strong>
                 </span>
             </font>
 
@@ -75,14 +73,22 @@ session_start();
         <marquee> This is Library Management System. </marquee>
     </span><br>
     <div class="row">
-        <div class="col-md-3">
-
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action="update_password.php" method="post">
+                <div class="form-group">
+                    <label>Enter Current Password:</label>
+                    <input type="password" name="old_password" class="form-control" required>
+                </div><br>
+                <div class="form-group">
+                    <label>Enter New Password:</label>
+                    <input type="password" name="new_password" class="form-control" required>
+                </div><br>
+                <button type="submit" name="update" class="btn btn-primary">Update Password</button>
+            </form>
         </div>
+        <div class="col-md-4"></div>
     </div>
-
-
-
-
 
 </body>
 
