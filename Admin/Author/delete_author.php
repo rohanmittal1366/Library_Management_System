@@ -1,12 +1,12 @@
 <?php
 $connection = mysqli_connect("localhost", "root", "");
 $db = mysqli_select_db($connection, "lms");
-$query = "delete from books where book_no = $_GET[bn]";
+$query = "delete from authors where author_id = $_GET[aid]";
 $query_run = mysqli_query($connection, $query);
 
 
 ?>
 <script type="text/javascript">
-    alert("Book is Deleted...");
-    window.location.href = "manage_book.php";
+    alert("Author is Deleted...");
+    window.location.href = "manage_author.php";
 </script>

@@ -1,6 +1,18 @@
 <?php
 require('../function.php');
 session_start();
+$connection = mysqli_connect("localhost", "root", "");
+$db = mysqli_select_db($connection, "lms");
+
+$cat_name = "";
+$cat_id = "";
+
+$query = "select * from category where cat_id = $_GET[cid]";
+$query_run = mysqli_query($connection, $query);
+while ($row = mysqli_fetch_assoc($query_run)) {
+    $cat_name = $row['cat_name'];
+    $cat_id = $row['cat_id'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +56,8 @@ session_start();
             <font style="color: white">
                 <span>
                     <strong>
-                        EMAIL : <?php echo $_SESSION['email']; ?></strong>
+                        EMAIL : <?php echo $_SESSION['email']; ?>
+                    </strong>
                 </span>
             </font>
 
@@ -115,40 +128,36 @@ session_start();
         <marquee> This is Library Management System. </marquee>
     </span><br>
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th>Author ID</th>
-                        <th>Name</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <?php
-                $connection = mysqli_connect("localhost", "root", "");
-                $db = mysqli_select_db($connection, "lms");
-                $query = "select * from authors";
-                $query_run = mysqli_query($connection, $query);
-                while ($row = mysqli_fetch_assoc($query_run)) {
-                ?>
-                    <tr>
-                        <td><?php echo $row['author_id']; ?></td>
-                        <td><?php echo $row['author_name']; ?></td>
-                        <td>
-                            <button class="btn" name=""><a href="edit_author.php?aid=<?php echo $row['author_id']; ?>">Edit</a></button>
-                            <button class="btn" name=""><a href="delete_author.php?aid=<?php echo $row['author_id']; ?>">Delete</a></button>
-                        </td>
-                    </tr>
-                <?php
-                }
-                ?>
-            </table>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action="" method="post">
+
+                <div class="form-group">
+                    <label>Category Name:</label>
+                    <input type="text" name="cat_name" value="<?php echo $cat_name; ?>" class="form-control" required="">
+                </div>
+
+
+                <button class="btn btn-primary" name="update">
+                    Update Category
+                </button>
+
+            </form>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-4"></div>
     </div>
+
 
 
 </body>
 
 </html>
+<?php
+if (isset($_POST['update'])) {
+    $connection = mysqli_connect("localhost", "root", "");
+    $db = mysqli_select_db($connection, "lms");
+    $query = "update category set cat_name = '$_POST[cat_name]' where cat_id = $_GET[cid]";
+    $query_run = mysqli_query($connection, $query);
+    header("location:manage_cat.php");
+}
+?>
