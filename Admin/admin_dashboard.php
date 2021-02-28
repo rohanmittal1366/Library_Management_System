@@ -122,7 +122,6 @@ session_start();
                     <a href="./User/regusers.php" class="btn btn-danger" target="_blank">View Registered Users</a>
                 </div>
             </div>
-
         </div>
         <div class="col-md-3">
             <div class="card bg-light" style="width: 300px;">
