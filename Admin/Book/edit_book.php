@@ -136,19 +136,48 @@ while ($row = mysqli_fetch_assoc($query_run)) {
             <form action="" method="post">
                 <div class="form-group">
                     <label>Book No:</label>
-                    <input type="text" name="book_no" value="<?php echo $book_no; ?>" class="form-control" required="">
+                    <input type="text" name="book_no" value="<?php echo $book_no; ?>" class="form-control" required="" disabled>
                 </div>
                 <div class="form-group">
                     <label>Book Name:</label>
                     <input type="text" name="book_name" value="<?php echo $book_name; ?>" class="form-control" required="">
                 </div>
                 <div class="form-group">
-                    <label>Author ID:</label>
-                    <input type="text" name="author_id" value="<?php echo $author_id; ?>" class="form-control" required="">
+                    <label>Author :</label>
+                    <!-- <input type="text" name="author_id" value="<?php echo $author_id; ?>" class="form-control" required=""> -->
+                    <select class="form-control" name="book_author">
+                        <option>-Select Author-</option>
+                        <?php
+                        $connection = mysqli_connect("localhost", "root", "");
+                        $db = mysqli_select_db($connection, "lms");
+                        $query = "select author_name from authors";
+                        $query_run = mysqli_query($connection, $query);
+                        while ($row = mysqli_fetch_assoc($query_run)) {
+                        ?>
+                            <option><?php echo $row['author_name']; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                    
                 </div>
                 <div class="form-group">
-                    <label>Category ID:</label>
-                    <input type="text" name="cat_id" value="<?php echo $cat_id; ?>" class="form-control" required="">
+                    <label>Category:</label>
+                    <!-- <input type="text" name="cat_id" value="<?php echo $cat_id; ?>" class="form-control" required=""> -->
+                    <select class="form-control" name="book_cat">
+                        <option>-----------Select Category-------------</option>
+                        <?php
+                        $connection = mysqli_connect("localhost", "root", "");
+                        $db = mysqli_select_db($connection, "lms");
+                        $query = "select cat_name from category";
+                        $query_run = mysqli_query($connection, $query);
+                        while ($row = mysqli_fetch_assoc($query_run)) {
+                        ?>
+                            <option><?php echo $row['cat_name']; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Book Price:</label>
@@ -172,8 +201,23 @@ while ($row = mysqli_fetch_assoc($query_run)) {
 if (isset($_POST['update'])) {
     $connection = mysqli_connect("localhost", "root", "");
     $db = mysqli_select_db($connection, "lms");
-    $query = "update books set book_name = '$_POST[book_name]',author_id=$_POST[author_id],cat_id=$_POST[cat_id],book_price = $_POST[book_price] where book_no = $_GET[bn]";
+     // For Author
+     $author_id = 0;
+     $query1 = "select author_id from authors where author_name='$_POST[book_author]'";
+     $query_run1 = mysqli_query($connection, $query1);
+     while ($row = mysqli_fetch_assoc($query_run1)) {
+         $author_id = $row['author_id'];
+     }
+     //For category
+    $cat_id = 0;
+    $query2 = "select cat_id from category where cat_name='$_POST[book_cat]'";
+    $query_run2 = mysqli_query($connection, $query2);
+    while ($row = mysqli_fetch_assoc($query_run2)) {
+        $cat_id = $row['cat_id'];
+    }
+
+    $query = "update books set book_name = '$_POST[book_name]',author_id=$author_id,cat_id=$cat_id,book_price = $_POST[book_price] where book_no = $_GET[bn]";
     $query_run = mysqli_query($connection, $query);
-    header("location:manage_book.php");
+    //header("location:manage_book.php");
 }
 ?>

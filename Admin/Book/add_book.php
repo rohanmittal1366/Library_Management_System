@@ -30,7 +30,7 @@ session_start();
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="../admin_dashboard.php">Library Management System(LMS)</a>
@@ -111,48 +111,95 @@ session_start();
 
 
 
-    <span><marquee>This is library Management System. </marquee></span><br><br>
-	<div class="row">
-		<div class="col-md-4"></div>
-		<div class="col-md-4">
-			<form action="" method="post">
-				<div class="form-group">
-					<label>Book Name:</label>
-					<input type="text" name="book_name" class="form-control" required="">
-				</div>
-				<div class="form-group">
-					<label>Book Author:</label>
-					<input type="text" name="book_author" class="form-control" required="">
-				</div>
+    <span>
+        <marquee>This is library Management System. </marquee>
+    </span><br><br>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action="" method="post">
+                <div class="form-group">
+                    <label>Book Name:</label>
+                    <input type="text" name="book_name" class="form-control" required="">
 
-				<div class="form-group">
-					<label>Category Name:</label>
-					<input type="text" name="book_cat" class="form-control" required="">
-				</div>
+                </div>
+                <div class="form-group">
+                    <label>Book Author:</label>
+                    <!-- <input type="text" name="book_author" class="form-control" required=""> -->
+                    <select class="form-control" name="book_author">
+                        <option>-Select Author-</option>
+                        <?php
+                        $connection = mysqli_connect("localhost", "root", "");
+                        $db = mysqli_select_db($connection, "lms");
+                        $query = "select author_name from authors";
+                        $query_run = mysqli_query($connection, $query);
+                        while ($row = mysqli_fetch_assoc($query_run)) {
+                        ?>
+                            <option><?php echo $row['author_name']; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </div>
 
-				<div class="form-group">
-					<label>Book No:</label>
-					<input type="text" name="book_no" class="form-control" required="">
-				</div>
+                <div class="form-group">
+                    <label>Category Name:</label>
+                    <!-- <input type="text" name="book_cat" class="form-control" required=""> -->
+                    <select class="form-control" name="book_cat">
+                        <option>-----------Select Category-------------</option>
+                        <?php
+                        $connection = mysqli_connect("localhost", "root", "");
+                        $db = mysqli_select_db($connection, "lms");
+                        $query = "select cat_name from category";
+                        $query_run = mysqli_query($connection, $query);
+                        while ($row = mysqli_fetch_assoc($query_run)) {
+                        ?>
+                            <option><?php echo $row['cat_name']; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </div>
 
-				<div class="form-group">
-					<label>Book Price:</label>
-					<input type="text" name="book_price" class="form-control" required="">
-				</div>
-				<button class="btn btn-primary" name="add_book">Add Book</button>
+                <div class="form-group">
+                    <label>Book No:</label>
+                    <input type="text" name="book_no" class="form-control" required="">
+                </div>
 
-			</form>
-		</div>
-		<div class="col-md-4"></div>
-	</div>
+                <div class="form-group">
+                    <label>Book Price:</label>
+                    <input type="text" name="book_price" class="form-control" required="">
+                </div>
+                <button class="btn btn-primary" name="add_book">Add Book</button>
+
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 </body>
+
 </html>
 
 <?php
-	if(isset($_POST['add_book'])){
-		$connection = mysqli_connect("localhost","root","");
-		$db = mysqli_select_db($connection,"lms");
-		$query = "insert into books values(null,'$_POST[book_name]','$_POST[book_author]','$_POST[book_cat]',$_POST[book_no],$_POST[book_price])";
-		$query_run = mysqli_query($connection,$query);
-	}
+if (isset($_POST['add_book'])) {
+    $connection = mysqli_connect("localhost", "root", "");
+    $db = mysqli_select_db($connection, "lms");
+    // For Author
+    $author_id = 0;
+    $query1 = "select author_id from authors where author_name='$_POST[book_author]'";
+    $query_run1 = mysqli_query($connection, $query1);
+    while ($row = mysqli_fetch_assoc($query_run1)) {
+        $author_id = $row['author_id'];
+    }
+
+    //For category
+    $cat_id = 0;
+    $query2 = "select cat_id from category where cat_name='$_POST[book_cat]'";
+    $query_run2 = mysqli_query($connection, $query2);
+    while ($row = mysqli_fetch_assoc($query_run2)) {
+        $cat_id = $row['cat_id'];
+    }
+    $query = "insert into books values(null,'$_POST[book_name]',102,$cat_id,$_POST[book_no],$_POST[book_price])";
+    $query_run = mysqli_query($connection, $query);
+}
 ?>

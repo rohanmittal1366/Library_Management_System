@@ -117,7 +117,21 @@ session_start();
 			<form action="" method="post">
 				<div class="form-group">
 					<label>Book Name:</label>
-					<input type="text" name="book_name" class="form-control" required="">
+					<!-- <input type="text" name="book_name" class="form-control" required=""> -->
+					<select class="form-control" name="book_name">
+                        <option>-Select Book-</option>
+                        <?php
+                        $connection = mysqli_connect("localhost", "root", "");
+                        $db = mysqli_select_db($connection, "lms");
+                        $query = "select book_name from books";
+                        $query_run = mysqli_query($connection, $query);
+                        while ($row = mysqli_fetch_assoc($query_run)) {
+                        ?>
+                            <option><?php echo $row['book_name']; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
 				</div>
 				<div class="form-group">
 					<label>Book Author:</label>
@@ -141,7 +155,21 @@ session_start();
 					</div>
 					<div class="form-group">
 						<label>Student ID:</label>
-						<input type="text" name="student_id" class="form-control" required="">
+						<!-- <input type="text" name="student_id" class="form-control" required=""> -->
+						<select class="form-control" name="student_id">
+						<option>-Select Student-</option>
+						<?php
+						$connection = mysqli_connect("localhost", "root", "");
+						$db = mysqli_select_db($connection, "lms");
+						$query = "select id from users";
+						$query_run = mysqli_query($connection, $query);
+						while ($row = mysqli_fetch_assoc($query_run)) {
+						?>
+							<option><?php echo $row['id']; ?></option>
+						<?php
+						}
+						?>
+					</select>
 					</div>
 					<div class="form-group">
 						<label>Issue Date:</label>

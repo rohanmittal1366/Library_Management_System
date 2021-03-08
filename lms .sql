@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2020 at 08:10 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.26
+-- Generation Time: Mar 03, 2021 at 12:13 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -59,9 +58,10 @@ CREATE TABLE `authors` (
 --
 
 INSERT INTO `authors` (`author_id`, `author_name`) VALUES
-(102, 'M D Guptaa'),
-(103, 'Chetan Bhagat'),
-(104, 'Munshi Prem Chand');
+(101, 'M D Guptaa'),
+(102, 'Chetan Bhagat'),
+(103, 'Robin Sharma'),
+(107, 'J.K Rowling');
 
 -- --------------------------------------------------------
 
@@ -83,8 +83,10 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`book_id`, `book_name`, `author_id`, `cat_id`, `book_no`, `book_price`) VALUES
-(1, 'Software engineering', 101, 1, 4518, 270),
-(2, 'Data structure', 102, 2, 6541, 300);
+(1, 'Software engineering', 101, 4, 5231, 300),
+(2, 'Data structure', 102, 2, 4518, 300),
+(39, 'You Can WIn', 102, 5, 123, 200),
+(40, 'Harry Potter', 107, 2, 1333, 2000);
 
 -- --------------------------------------------------------
 
@@ -102,10 +104,11 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`cat_id`, `cat_name`) VALUES
-(1, 'Computer Science Engineering '),
+(1, 'Electrical '),
 (2, 'Novel'),
 (4, 'Motivational'),
-(5, 'Story');
+(5, 'Story'),
+(10, 'Self-Help');
 
 -- --------------------------------------------------------
 
@@ -128,8 +131,9 @@ CREATE TABLE `issued_books` (
 --
 
 INSERT INTO `issued_books` (`s_no`, `book_no`, `book_name`, `book_author`, `student_id`, `status`, `issue_date`) VALUES
-(1, 6541, 'Data structure', 'D S Gupta', 4, 1, '0000-00-00 00:00:00'),
-(18, 7845, 'half Girlfriend', 'Chetan Bhagat', 2, 1, '2020-04-22');
+(1, 4518, 'Data structure', 'D S Gupta', 4, 1, '0000-00-00 00:00:00'),
+(20, 4518, 'Data structure', 'D S Gupta', 4, 1, '0000-00-00 00:00:00'),
+(22, 5231, 'Software engineering', 'M D Guptaa', 4, 1, '2121-03-03');
 
 -- --------------------------------------------------------
 
@@ -151,8 +155,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `mobile`, `address`) VALUES
-(4, 'user', 'user@gmail.com', 'user@1234', 2147483644, 'XYZ Coloney, PQR Nagar , Jaipur'),
-(7, 'hemant', 'hemant@gmail.com', 'hemant@123', 2147483644, 'XYZ Coloney, PQR Nagar , Jaipur');
+(4, 'user', 'user1@gmail.com', 'user@1234', 2147483644, 'XYZ Coloney, PQR Nagar , Jaipur'),
+(11, 'rohan', 'rohan@gmail.com', '1234', 123456789, 'Kota, Jaipur');
 
 --
 -- Indexes for dumped tables
@@ -174,7 +178,10 @@ ALTER TABLE `authors`
 -- Indexes for table `books`
 --
 ALTER TABLE `books`
-  ADD PRIMARY KEY (`book_id`);
+  ADD PRIMARY KEY (`book_id`),
+  ADD UNIQUE KEY `book_no` (`book_no`),
+  ADD KEY `cat_id` (`cat_id`),
+  ADD KEY `author_id` (`author_id`);
 
 --
 -- Indexes for table `category`
@@ -186,13 +193,18 @@ ALTER TABLE `category`
 -- Indexes for table `issued_books`
 --
 ALTER TABLE `issued_books`
-  ADD PRIMARY KEY (`s_no`);
+  ADD PRIMARY KEY (`s_no`),
+  ADD KEY `book_no` (`book_no`),
+  ADD KEY `book_name` (`book_name`),
+  ADD KEY `book_author` (`book_author`),
+  ADD KEY `student_id` (`student_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -208,31 +220,48 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `authors`
 --
 ALTER TABLE `authors`
-  MODIFY `author_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `author_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `issued_books`
 --
 ALTER TABLE `issued_books`
-  MODIFY `s_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `s_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `books`
+--
+ALTER TABLE `books`
+  ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `authors` (`author_id`),
+  ADD CONSTRAINT `books_ibfk_2` FOREIGN KEY (`author_id`) REFERENCES `authors` (`author_id`);
+
+--
+-- Constraints for table `issued_books`
+--
+ALTER TABLE `issued_books`
+  ADD CONSTRAINT `issued_books_ibfk_1` FOREIGN KEY (`book_no`) REFERENCES `books` (`book_no`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
