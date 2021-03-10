@@ -1,4 +1,5 @@
 <?php
+
 require('../function.php');
 session_start();
 
@@ -8,6 +9,11 @@ session_start();
 <html>
 
 <head>
+    <style>
+        .error {
+            color: #FF0000;
+        }
+    </style>
 
 
     <meta charset="utf-8" name="viewport" content="width=device-width,intial-scale=1">
@@ -109,7 +115,88 @@ session_start();
         </div>
     </nav>
 
+    <?php
 
+    $book_name = $book_no = $book_price  = $book_author= $book_cat ="";
+    $book_nameErr = $book_noErr = $book_priceErr  = $book_authorErr = $book_catErr = "";
+    $cnt = 0;
+    if (isset($_POST['add_book'])) {
+        $connection = mysqli_connect("localhost", "root", "");
+        $db = mysqli_select_db($connection, "lms");
+
+        if (empty($_POST["book_name"])) {
+            $book_nameErr = "Book name is required";
+        } else {
+            $book_name = test_input($_POST["book_name"]);
+
+            if (!preg_match("/^[a-zA-Z-' ]*$/", $book_name)) {
+                $book_nameErr = "Only letters and white space allowed";
+            } else {
+                $cnt++;
+            }
+        }
+        if (empty($_POST["book_no"])) {
+            $book_noErr = "Book no. is required";
+        } else {
+            $book_no = test_input($_POST["book_no"]);
+            if (!preg_match("/^[1-9][0-9]*$/", $book_no)) {
+                $book_noErr = "Only numbers are allowed";
+            } else {
+                $cnt++;
+            }
+        }
+
+        if (empty($_POST["book_author"]) || $_POST["book_author"]=="-Select Author-") {
+            $book_authorErr = "Book author is required";
+            
+          } else {
+            $book_author = test_input($_POST["book_author"]);
+            $cnt++;
+          }
+
+        if (empty($_POST["book_cat"]) || $_POST["book_cat"]=="-Select Category-") {
+        $book_catErr = "Book category is required";
+        
+        } else {
+        $book_cat = test_input($_POST["book_cat"]);
+        $cnt++;
+        }
+
+        if (empty($_POST["book_price"])) {
+            $book_priceErr = "Book price is required";
+        } else {
+            $book_price = test_input($_POST["book_price"]);
+            if (!preg_match("/^[1-9][0-9]*$/", $book_price)) {
+                $book_priceErr = "Only numbers are allowed";
+            } else {
+                $cnt++;
+            }
+        }
+       
+        if ($cnt == 5) {
+            // For Author
+            $author_id = 0;
+            $query1 = "select author_id from authors where author_name='$book_author'";
+            $query_run1 = mysqli_query($connection, $query1);
+            while ($row = mysqli_fetch_assoc($query_run1)) {
+                $author_id = $row['author_id'];
+            }
+
+            //For category
+            $cat_id = 0;
+            $query2 = "select cat_id from category where cat_name='$book_cat'";
+            $query_run2 = mysqli_query($connection, $query2);
+            while ($row = mysqli_fetch_assoc($query_run2)) {
+                $cat_id = $row['cat_id'];
+            }
+            $query = "insert into books values(null,'$book_name',$author_id,$cat_id,$book_no,$book_price)";
+            $query_run = mysqli_query($connection, $query);
+    ?>
+            
+    <?php
+        }
+    }
+    ?>
 
     <span>
         <marquee>This is library Management System. </marquee>
@@ -121,13 +208,14 @@ session_start();
                 <div class="form-group">
                     <label>Book Name:</label>
                     <input type="text" name="book_name" class="form-control" required="">
+                    <span class="error">* <?php echo $book_nameErr; ?></span>
 
                 </div>
                 <div class="form-group">
                     <label>Book Author:</label>
                     <!-- <input type="text" name="book_author" class="form-control" required=""> -->
                     <select class="form-control" name="book_author">
-                        <option>-Select Author-</option>
+                        <option <?= $book_author == "-Select Author-"? "selected":"";?> >-Select Author-</option>
                         <?php
                         $connection = mysqli_connect("localhost", "root", "");
                         $db = mysqli_select_db($connection, "lms");
@@ -135,18 +223,20 @@ session_start();
                         $query_run = mysqli_query($connection, $query);
                         while ($row = mysqli_fetch_assoc($query_run)) {
                         ?>
-                            <option><?php echo $row['author_name']; ?></option>
+                            <option <?= $book_author == $row['author_name']? "selected":"";?> ><?php echo $row['author_name']; ?></option>
                         <?php
                         }
                         ?>
                     </select>
+                    <span class="error">* <?php echo $book_authorErr; ?></span>
+                    <br>
                 </div>
 
                 <div class="form-group">
                     <label>Category Name:</label>
                     <!-- <input type="text" name="book_cat" class="form-control" required=""> -->
                     <select class="form-control" name="book_cat">
-                        <option>-----------Select Category-------------</option>
+                        <option <?= $book_cat == "-Select Category-"? "selected":"";?> >-Select Category-</option>
                         <?php
                         $connection = mysqli_connect("localhost", "root", "");
                         $db = mysqli_select_db($connection, "lms");
@@ -154,21 +244,24 @@ session_start();
                         $query_run = mysqli_query($connection, $query);
                         while ($row = mysqli_fetch_assoc($query_run)) {
                         ?>
-                            <option><?php echo $row['cat_name']; ?></option>
+                            <option <?= $book_cat == $row['cat_name'] ? "selected":"";?> ><?php echo $row['cat_name']; ?></option>
                         <?php
                         }
                         ?>
                     </select>
+                    <span class="error">* <?php echo $book_catErr; ?></span>
                 </div>
 
                 <div class="form-group">
                     <label>Book No:</label>
                     <input type="text" name="book_no" class="form-control" required="">
+                    <span class="error">* <?php echo $book_noErr; ?></span>
                 </div>
 
                 <div class="form-group">
                     <label>Book Price:</label>
                     <input type="text" name="book_price" class="form-control" required="">
+                    <span class="error">* <?php echo $book_priceErr; ?></span>
                 </div>
                 <button class="btn btn-primary" name="add_book">Add Book</button>
 
@@ -176,30 +269,13 @@ session_start();
         </div>
         <div class="col-md-4"></div>
     </div>
+
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+
 </body>
 
 </html>
-
-<?php
-if (isset($_POST['add_book'])) {
-    $connection = mysqli_connect("localhost", "root", "");
-    $db = mysqli_select_db($connection, "lms");
-    // For Author
-    $author_id = 0;
-    $query1 = "select author_id from authors where author_name='$_POST[book_author]'";
-    $query_run1 = mysqli_query($connection, $query1);
-    while ($row = mysqli_fetch_assoc($query_run1)) {
-        $author_id = $row['author_id'];
-    }
-
-    //For category
-    $cat_id = 0;
-    $query2 = "select cat_id from category where cat_name='$_POST[book_cat]'";
-    $query_run2 = mysqli_query($connection, $query2);
-    while ($row = mysqli_fetch_assoc($query_run2)) {
-        $cat_id = $row['cat_id'];
-    }
-    $query = "insert into books values(null,'$_POST[book_name]',102,$cat_id,$_POST[book_no],$_POST[book_price])";
-    $query_run = mysqli_query($connection, $query);
-}
-?>

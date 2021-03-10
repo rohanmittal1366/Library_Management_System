@@ -30,7 +30,7 @@ session_start();
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="../admin_dashboard.php">Library Management System(LMS)</a>
@@ -114,35 +114,60 @@ session_start();
     <span>
         <marquee> This is Library Management System. </marquee>
     </span><br>
-    <div class="row">
+    
+        <?php
+        $authorErr = $author_name = "";
+        if (isset($_POST['add_author'])) {
+            
+            $connection = mysqli_connect("localhost", "root", "");
+            $db = mysqli_select_db($connection, "lms");
+
+            $cnt = 0;
+            if (empty($_POST["author_name"])) {
+                $authorErr = "author name is required";
+            } else {
+                $author_name = test_input($_POST["author_name"]);
+                if (!preg_match("/^[a-zA-Z-' ]*$/", $author_name)) {
+                    $authorErr = "author name must be letters";
+                } else {
+                    $cnt++;
+                }
+            }
+            if ($cnt == 1) {
+                $query = "insert into authors values('','$author_name')";
+                $query_run = mysqli_query($connection, $query);
+                ?>
+                <script type="text/javascript">
+                    alert("Author name is registered")
+                    window.location.href = "../admin_dashboard.php";
+                </script>
+                <?php
+            }
+        }
+        ?>
+        <div class="row">
         <div class="col-md 4"></div>
         <div class="col-md 4">
             <form action="" method="post">
                 <div class="form-group">
                     <label>Author Name:</label>
                     <input type="text" name="author_name" class="form-control" required>
-
+                    <span class="error">* <?php echo $authorErr; ?></span>
+                    <br><br>
                 </div>
-               
-                <button type="submit" class="btn btn-primary" name="add_author"> Add Author</button>
+
+                <button type="submit" class="btn btn-primary"  name="add_author"> Add Author</button>
 
             </form>
         </div>
         <div class="col-md 4"></div>
     </div>
 
-
-
-
-
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
 </body>
 
 </html>
-<?php
-	if(isset($_POST['add_author'])){
-		$connection = mysqli_connect("localhost","root","");
-		$db = mysqli_select_db($connection,"lms");
-		$query = "insert into authors values('','$_POST[author_name]')";
-		$query_run = mysqli_query($connection,$query);
-	}
-?>

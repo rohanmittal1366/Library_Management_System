@@ -58,4 +58,12 @@
 		}
 		return($issued_book_count);
 	}
+
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 ?>

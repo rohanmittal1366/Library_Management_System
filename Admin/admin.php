@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 
 <html>
+<?php
+require('.././Admin/function.php');
+?>
 
 <head>
+    <style>
+        .error {
+            color: #FF0000;
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Admin Login</title>
@@ -51,6 +59,61 @@
     <div class="row">
 
         <div class="col-md-4" id="side_bar">
+
+            <?php
+            session_start();
+            $emailErr = $passwordErr = "";
+            if (isset($_POST['login'])) {
+                $connection = mysqli_connect("localhost", "root", "");
+                $db = mysqli_select_db($connection, "lms");
+
+
+                $cnt = 0;
+                if (empty($_POST["email"])) {
+                    $emailErr = "Email is required";
+                } else {
+                    $email = test_input($_POST["email"]);
+                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        $emailErr = "Invalid email format";
+                    } else {
+                        $cnt++;
+                    }
+                }
+
+
+
+                if ($cnt == 1) {
+                    $query = "select * from admins where email = '$email'";
+                    $query_run = mysqli_query($connection, $query);
+                    $cnt = 0;
+                    while ($row = mysqli_fetch_assoc($query_run)) {
+                        if ($row['email'] == $_POST['email']) {
+                            if ($row['password'] == $_POST['password']) {
+                                $_SESSION['name'] = $row['name'];
+                                $_SESSION['email'] = $row['email'];
+                                $_SESSION['id'] = $row['id'];
+                                header("Location: admin_dashboard.php");
+                            } else {
+            ?>
+                                <br><br>
+                                <center><span class="alert-danger">Wrong Password</span></center>
+
+                        <?php
+                            }
+                            $cnt = 1;
+                        }
+                    }
+                    if ($cnt === 0) {
+                        ?>
+                        <br><br>
+                        <center><span class="alert-danger">Wrong Email</span></center>
+            <?php
+                    }
+                }
+            }
+            ?>
+
+
             <h5>Library Timing</h5>
             <ul>
 
@@ -79,48 +142,19 @@
 
                     <label for="name">Email ID:</label>
                     <input type="text" name="email" class="form-control" required>
+                    <span class="error">* <?php echo $emailErr; ?></span>
+                    <br><br>
                 </div><br>
                 <div class="form-group">
                     <label for="name">Password:</label>
                     <input type="password" name="password" class="form-control" required>
+                    <br>
 
                 </div><br>
                 <button type="submit" name="login" class="btn btn-primary">Login</button>
             </form>
 
-            <?php
-            session_start();
-            if (isset($_POST['login'])) {
-                $connection = mysqli_connect("localhost", "root", "");
-                $db = mysqli_select_db($connection, "lms");
-                $query = "select * from admins where email = '$_POST[email]'";
-                $query_run = mysqli_query($connection, $query);
-                $cnt = 0;
-                while ($row = mysqli_fetch_assoc($query_run)) {
-                    if ($row['email'] == $_POST['email']) {
-                        if ($row['password'] == $_POST['password']) {
-                            $_SESSION['name'] = $row['name'];
-                            $_SESSION['email'] = $row['email'];
-                            $_SESSION['id'] = $row['id'];
-                            header("Location: admin_dashboard.php");
-                        } else {
-                        ?>
-                            <br><br>
-                            <center><span class="alert-danger">Wrong Password</span></center>
 
-                    <?php
-                        }
-                        $cnt = 1;
-                    }
-                }
-                if ($cnt === 0) {
-                    ?>
-                    <br><br>
-                    <center><span class="alert-danger">Wrong Email</span></center>
-            <?php
-                }
-            }
-            ?>
 
         </div>
     </div>
