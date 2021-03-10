@@ -114,38 +114,38 @@ session_start();
     <span>
         <marquee> This is Library Management System. </marquee>
     </span><br>
-    
-        <?php
-        $authorErr = $author_name = "";
-        if (isset($_POST['add_author'])) {
-            
-            $connection = mysqli_connect("localhost", "root", "");
-            $db = mysqli_select_db($connection, "lms");
 
-            $cnt = 0;
-            if (empty($_POST["author_name"])) {
-                $authorErr = "author name is required";
+    <?php
+    $authorErr = $author_name = "";
+    if (isset($_POST['add_author'])) {
+
+        $connection = mysqli_connect("localhost", "root", "");
+        $db = mysqli_select_db($connection, "lms");
+
+        $cnt = 0;
+        if (empty($_POST["author_name"])) {
+            $authorErr = "author name is required";
+        } else {
+            $author_name = test_input($_POST["author_name"]);
+            if (!preg_match("/^[a-zA-Z-' ]*$/", $author_name)) {
+                $authorErr = "author name must be letters";
             } else {
-                $author_name = test_input($_POST["author_name"]);
-                if (!preg_match("/^[a-zA-Z-' ]*$/", $author_name)) {
-                    $authorErr = "author name must be letters";
-                } else {
-                    $cnt++;
-                }
-            }
-            if ($cnt == 1) {
-                $query = "insert into authors values('','$author_name')";
-                $query_run = mysqli_query($connection, $query);
-                ?>
-                <script type="text/javascript">
-                    alert("Author name is registered")
-                    window.location.href = "../admin_dashboard.php";
-                </script>
-                <?php
+                $cnt++;
             }
         }
-        ?>
-        <div class="row">
+        if ($cnt == 1) {
+            $query = "insert into authors values('','$author_name')";
+            $query_run = mysqli_query($connection, $query);
+    ?>
+            <script type="text/javascript">
+                alert("Author name is registered")
+                window.location.href = "../admin_dashboard.php";
+            </script>
+    <?php
+        }
+    }
+    ?>
+    <div class="row">
         <div class="col-md 4"></div>
         <div class="col-md 4">
             <form action="" method="post">
@@ -156,7 +156,7 @@ session_start();
                     <br><br>
                 </div>
 
-                <button type="submit" class="btn btn-primary"  name="add_author"> Add Author</button>
+                <button type="submit" class="btn btn-primary" name="add_author"> Add Author</button>
 
             </form>
         </div>

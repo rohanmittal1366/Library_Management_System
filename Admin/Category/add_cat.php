@@ -30,7 +30,7 @@ session_start();
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="../admin_dashboard.php">Library Management System(LMS)</a>
@@ -114,6 +114,38 @@ session_start();
     <span>
         <marquee> This is Library Management System. </marquee>
     </span><br>
+
+    <?php
+    $cat_name = $catErr = "";
+
+    if (isset($_POST['add_cat'])) {
+        $connection = mysqli_connect("localhost", "root", "");
+        $db = mysqli_select_db($connection, "lms");
+
+        $cnt = 0;
+        if (empty($_POST["cat_name"])) {
+            $catErr = "category is required";
+        } else {
+            $cat_name = test_input($_POST["cat_name"]);
+            if (!preg_match("/^[a-zA-Z-' ]*$/", $cat_name)) {
+                $catErr = "category name must be letters";
+            } else {
+                $cnt++;
+            }
+        }
+        if ($cnt == 1) {
+
+            $query = "insert into category values('','$cat_name')";
+            $query_run = mysqli_query($connection, $query);
+    ?>
+            <script type="text/javascript">
+                alert("category name is registered")
+                window.location.href = "../admin_dashboard.php";
+            </script>
+    <?php
+        }
+    }
+    ?>
     <div class="row">
         <div class="col-md 4"></div>
         <div class="col-md 4">
@@ -121,24 +153,21 @@ session_start();
                 <div class="form-group">
                     <label>Category Name:</label>
                     <input type="text" name="cat_name" class="form-control" required>
-
+                    <span class="error">* <?php echo $catErr; ?></span>
+                    <br><br>
                 </div>
-       
+
                 <button type="submit" class="btn btn-primary" name="add_cat">Add Category</button>
 
             </form>
         </div>
         <div class="col-md 4"></div>
     </div>
-
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
 </body>
 
 </html>
-<?php
-	if(isset($_POST['add_cat'])){
-		$connection = mysqli_connect("localhost","root","");
-		$db = mysqli_select_db($connection,"lms");
-		$query = "insert into category values('','$_POST[cat_name]')";
-		$query_run = mysqli_query($connection,$query);
-	}
-?>

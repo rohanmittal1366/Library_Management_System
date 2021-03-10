@@ -78,7 +78,7 @@ require('.././Admin/function.php');
 
 
                 if ($cnt == 1) {
-                    $query = "select * from users where email = '$_POST[email]'";
+                    $query = "select * from users where email = '$email'";
                     $query_run = mysqli_query($connection, $query);
                     $cnt = 0;
                     while ($row = mysqli_fetch_assoc($query_run)) {
