@@ -37,6 +37,12 @@ while ($row = mysqli_fetch_assoc($query_run)) {
             width: 300px;
             height: 450 px;
         }
+        body  {
+            background-image: url("tbg1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #cccccc;
+        }
     </style>
 </head>
 
@@ -67,14 +73,20 @@ while ($row = mysqli_fetch_assoc($query_run)) {
                         My Profile
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../view_profile.php">
+                        <a class="dropdown-item" href="view_profile.php">
+                        <img src="view.png" width="30" height="30">
                             View Profile
+                            
                         </a>
-                        <a class="dropdown-item" href="../edit_profile.php">
+                        <a class="dropdown-item" href="edit_profile.php">
+                        <img src="edit.png" width="30" height="30">
                             Edit Profile
+                            
                         </a>
-                        <a class="dropdown-item" href="../change_password.php">
+                        <a class="dropdown-item" href="change_password.php">
+                        <img src="cpass.png" width="30" height="30">
                             Change Password
+                            
                         </a>
                     </div>
                 </li>
@@ -94,24 +106,38 @@ while ($row = mysqli_fetch_assoc($query_run)) {
                     </a>
                 </li>
                 <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Book </a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Book 
+                    
+                    </a>
                     <div class="dropdown-menu">
-                        <a href="../Book/add_book.php" class="dropdown-item">Add New Book</a>
-                        <a href="../Book/manage_book.php" class="dropdown-item">Manage Book</a>
+                        <a href="../Book/add_book.php" class="dropdown-item">Add New Book
+                        <img src="abook.png" width="30" height="30">
+                    </a>
+                        <a href="../Book/manage_book.php" class="dropdown-item">Manage Book &nbsp
+                        <img src="mbook.png" width="30" height="30">
+                    </a>
                     </div>
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Category </a>
                     <div class="dropdown-menu">
-                        <a href="../Category/add_cat.php" class="dropdown-item">Add New Category</a>
-                        <a href="../Category/manage_cat.php" class="dropdown-item">Manage Category</a>
+                        <a href="../Category/add_cat.php" class="dropdown-item">Add New Category
+                        <img src="acat.ico" width="30" height="30">
+                    </a>
+                        <a href="../Category/manage_cat.php" class="dropdown-item">Manage Category &nbsp
+                        <img src="mcat.png" width="30" height="30">
+                    </a>
                     </div>
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Author</a>
                     <div class="dropdown-menu">
-                        <a href="../Author/add_author.php" class="dropdown-item">Add New Author</a>
-                        <a href="../Author/manage_author.php" class="dropdown-item">Manage Author</a>
+                        <a href="../Author/add_author.php" class="dropdown-item">Add New Author
+                        <img src="aauthor.png" width="25" height="25">
+                    </a>
+                        <a href="../Author/manage_author.php" class="dropdown-item">Manage Author
+                        <img src="mauthor.png" width="30" height="30">
+                    </a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -122,11 +148,11 @@ while ($row = mysqli_fetch_assoc($query_run)) {
         </div>
     </nav>
 
-
+<br><br>
 
     <span>
         <marquee> This is Library Management System. </marquee>
-    </span><br>
+    </span><br><br><br>
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
@@ -137,7 +163,7 @@ while ($row = mysqli_fetch_assoc($query_run)) {
                     <input type="text" name="author_name" value="<?php echo $author_name; ?>" class="form-control" required="">
                 </div>
 
-
+<br>
                 <button class="btn btn-primary" name="update">
                     Update Author
                 </button>

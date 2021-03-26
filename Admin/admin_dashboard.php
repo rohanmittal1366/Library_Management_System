@@ -24,6 +24,11 @@ session_start();
             padding: 50px;
             width: 300px;
             height: 450 px;
+        }body  {
+            background-image: url("xyz3.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #cccccc;
         }
     </style>
 </head>
@@ -33,6 +38,7 @@ session_start();
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
+            <img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
                 <a class="navbar-brand" href="admin_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
@@ -55,13 +61,19 @@ session_start();
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="view_profile.php">
+                        <img src="view.png" width="30" height="30">
                             View Profile
+                            
                         </a>
                         <a class="dropdown-item" href="edit_profile.php">
+                        <img src="edit.png" width="30" height="30">
                             Edit Profile
+                            
                         </a>
                         <a class="dropdown-item" href="change_password.php">
+                        <img src="cpass.png" width="30" height="30">
                             Change Password
+                            
                         </a>
                     </div>
                 </li>
@@ -83,22 +95,28 @@ session_start();
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Book </a>
                     <div class="dropdown-menu">
-                        <a href="./Book/add_book.php" class="dropdown-item">Add New Book</a>
-                        <a href="./Book/manage_book.php" class="dropdown-item">Manage Book</a>
+                        <a href="./Book/add_book.php" class="dropdown-item">Add New Book
+                        <img src="abook.png" width="30" height="30"></a>
+                        <a href="./Book/manage_book.php" class="dropdown-item">Manage Book
+                        <img src="mbook.png" width="30" height="30"></a>
                     </div>
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Category </a>
                     <div class="dropdown-menu">
-                        <a href="./Category/add_cat.php" class="dropdown-item">Add New Category</a>
-                        <a href="./Category/manage_cat.php" class="dropdown-item">Manage Category</a>
+                        <a href="./Category/add_cat.php" class="dropdown-item">Add New Category
+                        <img src="acat.ico" width="30" height="30"></a>
+                        <a href="./Category/manage_cat.php" class="dropdown-item">Manage Category
+                        <img src="mcat.png" width="30" height="30"></a>
                     </div>
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Author</a>
                     <div class="dropdown-menu">
-                        <a href="./Author/add_author.php" class="dropdown-item">Add New Author</a>
-                        <a href="./Author/manage_author.php" class="dropdown-item">Manage Author</a>
+                        <a href="./Author/add_author.php" class="dropdown-item">Add New Author
+                        <img src="aauthor.png" width="25" height="25"></a>
+                        <a href="./Author/manage_author.php" class="dropdown-item">Manage Author
+                        <img src="mauthor.png" width="30" height="30"></a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -109,10 +127,11 @@ session_start();
         </div>
     </nav>
 
-
+<br>
     <span>
         <marquee> This is Library Management System. </marquee>
     </span><br>
+    <br>
     <div class="row">
         <div class="col-md-3">
             <div class="card bg-light" style="width: 300px;">
@@ -150,7 +169,8 @@ session_start();
                     <a href="./Author/regauth.php" class="btn btn-primary" target="_blank">View Registered Authors</a>
                 </div>
             </div>
-        </div>
+        </div><br>
+        <br><br>
         <div class="col-md-3">
             <div class="card bg-light" style="width: 300px;">
                 <div class="card-header">Issued Books: </div>

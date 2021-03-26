@@ -22,6 +22,12 @@ session_start();
             width: 300px;
             height: 450 px;
         }
+        body  {
+            background-image: url("tbg1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #cccccc;
+        }
     </style>
 </head>
 
@@ -30,6 +36,7 @@ session_start();
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
+            <img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
                 <a class="navbar-brand" href="admin_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
@@ -68,10 +75,10 @@ session_start();
             </ul>
         </div>
     </nav><br>
-
+<br>
     <span>
         <marquee> This is Library Management System. </marquee>
-    </span><br>
+    </span><br><br><br>
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">

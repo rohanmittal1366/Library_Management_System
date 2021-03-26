@@ -33,6 +33,17 @@ $query = "select issued_books.book_name,issued_books.book_author,issued_books.bo
             width: 300px;
             height: 450 px;
         }
+        body  {
+            background-image: url("xyz3.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #cccccc;
+        }
+        table {
+            width: 100%;
+            border: #000000;
+            background-color: white;
+        }
     </style>
 </head>
 
@@ -41,6 +52,7 @@ $query = "select issued_books.book_name,issued_books.book_author,issued_books.bo
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
+            <img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
                 <a class="navbar-brand" href="../admin_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
@@ -119,10 +131,10 @@ $query = "select issued_books.book_name,issued_books.book_author,issued_books.bo
 
 
 
-
+<br>
     <span>
         <marquee> This is Library Management System. </marquee>
-    </span><br>
+    </span><br><br><br>
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">

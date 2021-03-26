@@ -36,6 +36,12 @@ while ($row = mysqli_fetch_assoc($query_run)) {
             width: 300px;
             height: 450 px;
         }
+        body  {
+            background-image: url("tbg1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #cccccc;
+        }
     </style>
 </head>
 
@@ -44,6 +50,7 @@ while ($row = mysqli_fetch_assoc($query_run)) {
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
+            <img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
                 <a class="navbar-brand" href="user_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
@@ -81,7 +88,7 @@ while ($row = mysqli_fetch_assoc($query_run)) {
                     </a></li>
             </ul>
         </div>
-    </nav><br>
+    </nav><br><br>
 
     <span>
         <marquee> This is Library Management System. </marquee>
