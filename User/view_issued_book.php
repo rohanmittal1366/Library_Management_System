@@ -21,9 +21,9 @@ $query = "select book_name,book_author,book_no from issued_books where student_i
     <meta charset="utf-8" name="viewport" content="width=device-width,intial-scale=1">
     <!-- <link rel="stylesheet" type="text/css" href="bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <script type="text/javascript" src="../../bootstrap-4.4.1/js/juqery_latest.js"></script>
-    <script type="text/javascript" src="../../bootstrap-4.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../bootstrap-5.0.0-beta2-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-4.4.1/js/juqery_latest.js"></script>
+    <script type="text/javascript" src="../bootstrap-4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-5.0.0-beta2-dist/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style type="text/css">
@@ -55,7 +55,7 @@ $query = "select book_name,book_author,book_no from issued_books where student_i
         <div class="container-fluid">
             <div class="navbar-header">
                 <img src="./images/abc1.jpeg" width="100" height="60"> &nbsp &nbsp
-                <a class="navbar-brand" href="../admin_dashboard.php">Library Management System(LMS)</a>
+                <a class="navbar-brand" href="./user_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
                 <span>
@@ -76,14 +76,20 @@ $query = "select book_name,book_author,book_no from issued_books where student_i
                         My Profile
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../view_profile.php">
+                        <a class="dropdown-item" href="./view_profile.php">
+                            <img src="./images/view.png" width="30" height="30">
                             View Profile
+
                         </a>
-                        <a class="dropdown-item" href="../edit_profile.php">
+                        <a class="dropdown-item" href="./edit_profile.php">
+                            <img src="./images/edit.png" width="30" height="30">
                             Edit Profile
+
                         </a>
-                        <a class="dropdown-item" href="../change_password.php">
+                        <a class="dropdown-item" href="./change_password.php">
+                            <img src="./images/cpass.png" width="30" height="30">
                             Change Password
+
                         </a>
                     </div>
                 </li>

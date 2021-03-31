@@ -38,7 +38,7 @@ function get_user_issue_book_count()
         }
 
         body {
-            background-image: url("./images/lib.jpg");
+            background-image: url("./images/xyz3.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
@@ -74,17 +74,17 @@ function get_user_issue_book_count()
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="view_profile.php">
-                            <img src="view.png" width="30" height="30">
+                            <img src="./images/view.png" width="30" height="30">
                             View Profile
 
                         </a>
                         <a class="dropdown-item" href="edit_profile.php">
-                            <img src="edit.png" width="30" height="30">
+                            <img src="./images/edit.png" width="30" height="30">
                             Edit Profile
 
                         </a>
                         <a class="dropdown-item" href="change_password.php">
-                            <img src="cpass.png" width="30" height="30">
+                            <img src="./images/cpass.png" width="30" height="30">
                             Change Password
 
                         </a>
@@ -107,7 +107,7 @@ function get_user_issue_book_count()
                     <div class="card-header">Issued Books: </div>
                     <div class="card-body">
                         <p class="card-text">Total no. of Issued Books: <?php echo get_user_issue_book_count(); ?> </p>
-                        <a href="view_issued_book.php" class="btn btn-danger" target="_blank">View Issued Book</a>
+                        <a href="view_issued_book.php" class="btn btn-danger">View Issued Book</a>
                     </div>
                 </div>
             </div>

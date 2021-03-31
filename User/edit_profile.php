@@ -64,7 +64,7 @@ while ($row = mysqli_fetch_assoc($query_run)) {
             <font style="color: white">
                 <span>
                     <strong>
-                        EMAIL : <?php echo $_SESSION['name']; ?></strong>
+                        EMAIL : <?php echo $_SESSION['email']; ?></strong>
                 </span>
             </font>
 
@@ -75,13 +75,19 @@ while ($row = mysqli_fetch_assoc($query_run)) {
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="view_profile.php">
+                            <img src="./images/view.png" width="30" height="30">
                             View Profile
+
                         </a>
                         <a class="dropdown-item" href="edit_profile.php">
+                            <img src="./images/edit.png" width="30" height="30">
                             Edit Profile
+
                         </a>
                         <a class="dropdown-item" href="change_password.php">
+                            <img src="./images/cpass.png" width="30" height="30">
                             Change Password
+
                         </a>
                     </div>
                 </li>
