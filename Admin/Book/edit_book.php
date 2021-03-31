@@ -41,8 +41,9 @@ while ($row = mysqli_fetch_assoc($query_run)) {
             width: 300px;
             height: 450 px;
         }
-        body  {
-            background-image: url("tbg1.jpg");
+
+        body {
+            background-image: url("./images/tbg1.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
@@ -55,7 +56,7 @@ while ($row = mysqli_fetch_assoc($query_run)) {
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-            <img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
+                <img src="./images/abc1.jpeg" width="100" height="60"> &nbsp &nbsp
                 <a class="navbar-brand" href="../admin_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
@@ -77,20 +78,20 @@ while ($row = mysqli_fetch_assoc($query_run)) {
                         My Profile
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="view_profile.php">
-                        <img src="view.png" width="30" height="30">
+                        <a class="dropdown-item" href="../view_profile.php">
+                            <img src="view.png" width="30" height="30">
                             View Profile
-                            
+
                         </a>
-                        <a class="dropdown-item" href="edit_profile.php">
-                        <img src="edit.png" width="30" height="30">
+                        <a class="dropdown-item" href="../edit_profile.php">
+                            <img src="edit.png" width="30" height="30">
                             Edit Profile
-                            
+
                         </a>
-                        <a class="dropdown-item" href="change_password.php">
-                        <img src="cpass.png" width="30" height="30">
+                        <a class="dropdown-item" href="../change_password.php">
+                            <img src="cpass.png" width="30" height="30">
                             Change Password
-                            
+
                         </a>
                     </div>
                 </li>
@@ -110,49 +111,53 @@ while ($row = mysqli_fetch_assoc($query_run)) {
                     </a>
                 </li>
                 <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Book 
-                    
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Book
+
                     </a>
                     <div class="dropdown-menu">
                         <a href="../Book/add_book.php" class="dropdown-item">Add New Book
-                        <img src="abook.png" width="30" height="30">
-                    </a>
+                            <img src="./images/abook.png" width="30" height="30">
+                        </a>
                         <a href="../Book/manage_book.php" class="dropdown-item">Manage Book &nbsp
-                        <img src="mbook.png" width="30" height="30">
-                    </a>
+                            <img src="./images/mbook.png" width="30" height="30">
+                        </a>
                     </div>
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Category </a>
                     <div class="dropdown-menu">
                         <a href="../Category/add_cat.php" class="dropdown-item">Add New Category
-                        <img src="acat.ico" width="30" height="30">
-                    </a>
+                            <img src="./images/acat.ico" width="30" height="30">
+                        </a>
                         <a href="../Category/manage_cat.php" class="dropdown-item">Manage Category &nbsp
-                        <img src="mcat.png" width="30" height="30">
-                    </a>
+                            <img src="./images/mcat.png" width="30" height="30">
+                        </a>
                     </div>
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Author</a>
                     <div class="dropdown-menu">
                         <a href="../Author/add_author.php" class="dropdown-item">Add New Author
-                        <img src="aauthor.png" width="25" height="25">
-                    </a>
+                            <img src="./images/aauthor.png" width="25" height="25">
+                        </a>
                         <a href="../Author/manage_author.php" class="dropdown-item">Manage Author
-                        <img src="mauthor.png" width="30" height="30">
-                    </a>
+                            <img src="./images/mauthor.png" width="30" height="30">
+                        </a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <a href="../Book/issue_book.php" class="nav-link">
                         Issue Book</a>
                 </li>
+                <li class="nav-item">
+                    <a href="../Book/return_book.php" class="nav-link">
+                        Return Book</a>
+                </li>
             </ul>
         </div>
     </nav>
 
-<br><br>
+    <br><br>
 
     <span>
         <marquee> This is Library Management System. </marquee>
@@ -186,7 +191,7 @@ while ($row = mysqli_fetch_assoc($query_run)) {
                         }
                         ?>
                     </select>
-                    
+
                 </div>
                 <div class="form-group">
                     <label>Category:</label>
@@ -228,14 +233,14 @@ while ($row = mysqli_fetch_assoc($query_run)) {
 if (isset($_POST['update'])) {
     $connection = mysqli_connect("localhost", "root", "");
     $db = mysqli_select_db($connection, "lms");
-     // For Author
-     $author_id = 0;
-     $query1 = "select author_id from authors where author_name='$_POST[book_author]'";
-     $query_run1 = mysqli_query($connection, $query1);
-     while ($row = mysqli_fetch_assoc($query_run1)) {
-         $author_id = $row['author_id'];
-     }
-     //For category
+    // For Author
+    $author_id = 0;
+    $query1 = "select author_id from authors where author_name='$_POST[book_author]'";
+    $query_run1 = mysqli_query($connection, $query1);
+    while ($row = mysqli_fetch_assoc($query_run1)) {
+        $author_id = $row['author_id'];
+    }
+    //For category
     $cat_id = 0;
     $query2 = "select cat_id from category where cat_name='$_POST[book_cat]'";
     $query_run2 = mysqli_query($connection, $query2);
@@ -246,5 +251,11 @@ if (isset($_POST['update'])) {
     $query = "update books set book_name = '$_POST[book_name]',author_id=$author_id,cat_id=$cat_id,book_price = $_POST[book_price] where book_no = $_GET[bn]";
     $query_run = mysqli_query($connection, $query);
     //header("location:manage_book.php");
+?>
+    <script type="text/javascript">
+        alert("Book is Updated")
+        window.location.href = "./add_book.php";
+    </script>
+<?php
 }
 ?>

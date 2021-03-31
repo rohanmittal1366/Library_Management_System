@@ -1,22 +1,8 @@
 <?php
 require('../function.php');
 session_start();
-$connection = mysqli_connect("localhost", "root", "");
-$db = mysqli_select_db($connection, "lms");
-
-$author_name = "";
-$author_id = "";
-
-$query = "select * from authors where author_id = $_GET[aid]";
-$query_run = mysqli_query($connection, $query);
-while ($row = mysqli_fetch_assoc($query_run)) {
-    $author_name = $row['author_name'];
-    $author_id = $row['author_id'];
-}
-
 ?>
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -64,8 +50,7 @@ while ($row = mysqli_fetch_assoc($query_run)) {
             <font style="color: white">
                 <span>
                     <strong>
-                        EMAIL : <?php echo $_SESSION['email']; ?>
-                    </strong>
+                        EMAIL : <?php echo $_SESSION['email']; ?></strong>
                 </span>
             </font>
 
@@ -143,11 +128,11 @@ while ($row = mysqli_fetch_assoc($query_run)) {
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="../Book/issue_book.php" class="nav-link">
+                    <a href="./issue_book.php" class="nav-link">
                         Issue Book</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../Book/return_book.php" class="nav-link">
+                    <a href="./return_book.php" class="nav-link">
                         Return Book</a>
                 </li>
             </ul>
@@ -155,45 +140,63 @@ while ($row = mysqli_fetch_assoc($query_run)) {
     </nav>
 
     <br><br>
-
     <span>
-        <marquee> This is Library Management System. </marquee>
-    </span><br><br><br>
+        <marquee>This is library Management System. </marquee>
+    </span><br><br>
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <form action="" method="post">
-
                 <div class="form-group">
-                    <label>Author Name:</label>
-                    <input type="text" name="author_name" value="<?php echo $author_name; ?>" class="form-control" required="">
+                    <label>Book No:</label>
+                    <!-- <input type="text" name="book_name" class="form-control" required=""> -->
+                    <select class="form-control" name="book_no">
+                        <option>-Select Book No-</option>
+                        <?php
+                        $connection = mysqli_connect("localhost", "root", "");
+                        $db = mysqli_select_db($connection, "lms");
+                        $query = "select DISTINCT book_no from issued_books";
+                        $query_run = mysqli_query($connection, $query);
+                        while ($row = mysqli_fetch_assoc($query_run)) {
+                        ?>
+                            <option><?php echo $row['book_no']; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
                 </div>
 
+
+
+
+                <div class="form-group">
+                    <label>Return Date:</label>
+                    <input type="text" name="date" class="form-control" value="<?php echo date("yy-m-d"); ?>">
+                </div>
                 <br>
-                <button class="btn btn-primary" name="update">
-                    Update Author
-                </button>
+                <button class="btn btn-primary" name="return_book">Return Book</button>
 
             </form>
         </div>
         <div class="col-md-4"></div>
     </div>
-
-
-
 </body>
 
 </html>
+
 <?php
-if (isset($_POST['update'])) {
+if (isset($_POST['return_book'])) {
     $connection = mysqli_connect("localhost", "root", "");
     $db = mysqli_select_db($connection, "lms");
-    $query = "update authors set author_name = '$_POST[author_name]' where author_id = $_GET[aid]";
+    $query = "Delete from issued_books where book_no=$_POST[book_no]";
+    $query1 = "insert into returnBook values(null,$_POST[book_no],0,'$_POST[date]')";
     $query_run = mysqli_query($connection, $query);
+    $query_run1 = mysqli_query($connection, $query1);
+
 ?>
     <script type="text/javascript">
-        alert("Author is edited ")
-        window.location.href = "./add_author.php";
+        alert("Book is submitted in library")
+        window.location.href = "./return_book.php";
     </script>
 <?php
 

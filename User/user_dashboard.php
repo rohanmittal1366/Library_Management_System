@@ -11,7 +11,7 @@ function get_user_issue_book_count()
     while ($row = mysqli_fetch_assoc($query_run)) {
         $user_issue_book_count  = $row['user_issue_book_count'];
     }
-    return($user_issue_book_count);
+    return ($user_issue_book_count);
 }
 ?>
 <!DOCTYPE html>
@@ -36,8 +36,9 @@ function get_user_issue_book_count()
             width: 300px;
             height: 450 px;
         }
-        body  {
-            background-image: url("lib.jpg");
+
+        body {
+            background-image: url("./images/lib.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
@@ -50,7 +51,7 @@ function get_user_issue_book_count()
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-            <img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
+                <img src="./images/abc1.jpeg" width="100" height="60"> &nbsp &nbsp
                 <a class="navbar-brand" href="user_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
@@ -73,19 +74,19 @@ function get_user_issue_book_count()
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="view_profile.php">
-                        <img src="view.png" width="30" height="30">
+                            <img src="view.png" width="30" height="30">
                             View Profile
-                            
+
                         </a>
                         <a class="dropdown-item" href="edit_profile.php">
-                        <img src="edit.png" width="30" height="30">
+                            <img src="edit.png" width="30" height="30">
                             Edit Profile
-                            
+
                         </a>
                         <a class="dropdown-item" href="change_password.php">
-                        <img src="cpass.png" width="30" height="30">
+                            <img src="cpass.png" width="30" height="30">
                             Change Password
-                            
+
                         </a>
                     </div>
                 </li>
@@ -100,22 +101,22 @@ function get_user_issue_book_count()
         <marquee> This is Library Management System. </marquee>
     </span><br><br><br>
     <center>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card bg-light" style="width: 300px;">
-                <div class="card-header">Issued Books: </div>
-                <div class="card-body">
-                    <p class="card-text">Total no. of Issued Books: <?php echo get_user_issue_book_count(); ?>  </p>
-                    <a href="view_issued_book.php" class="btn btn-danger" target="_blank">View Issued Book</a>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card bg-light" style="width: 300px;">
+                    <div class="card-header">Issued Books: </div>
+                    <div class="card-body">
+                        <p class="card-text">Total no. of Issued Books: <?php echo get_user_issue_book_count(); ?> </p>
+                        <a href="view_issued_book.php" class="btn btn-danger" target="_blank">View Issued Book</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3">
             <div class="col-md-3">
                 <div class="col-md-3">
+                    <div class="col-md-3">
 
+                    </div>
                 </div>
-            </div>
 
     </center>
 

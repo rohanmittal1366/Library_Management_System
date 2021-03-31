@@ -23,12 +23,13 @@ session_start();
 			width: 300px;
 			height: 450 px;
 		}
-		body  {
-            background-image: url("tbg1.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-color: #cccccc;
-        }
+
+		body {
+			background-image: url("./images/tbg1.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-color: #cccccc;
+		}
 	</style>
 </head>
 
@@ -37,7 +38,7 @@ session_start();
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
 			<div class="navbar-header">
-			<img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
+				<img src="./images/abc1.jpeg" width="100" height="60"> &nbsp &nbsp
 				<a class="navbar-brand" href="../admin_dashboard.php">Library Management System(LMS)</a>
 			</div>
 			<font style="color: white">
@@ -59,22 +60,22 @@ session_start();
 						My Profile
 					</a>
 					<div class="dropdown-menu">
-                        <a class="dropdown-item" href="view_profile.php">
-                        <img src="view.png" width="30" height="30">
-                            View Profile
-                            
-                        </a>
-                        <a class="dropdown-item" href="edit_profile.php">
-                        <img src="edit.png" width="30" height="30">
-                            Edit Profile
-                            
-                        </a>
-                        <a class="dropdown-item" href="change_password.php">
-                        <img src="cpass.png" width="30" height="30">
-                            Change Password
-                            
-                        </a>
-                    </div>
+						<a class="dropdown-item" href="../view_profile.php">
+							<img src="view.png" width="30" height="30">
+							View Profile
+
+						</a>
+						<a class="dropdown-item" href="../edit_profile.php">
+							<img src="edit.png" width="30" height="30">
+							Edit Profile
+
+						</a>
+						<a class="dropdown-item" href="../change_password.php">
+							<img src="cpass.png" width="30" height="30">
+							Change Password
+
+						</a>
+					</div>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="../../logout.php">
 						Logout
@@ -90,51 +91,55 @@ session_start();
 					<a href="../admin_dashboard.php" class="nav-link">
 						Dashboard
 					</a>
-					</li>
-                <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Book 
-                    
-                    </a>
-                    <div class="dropdown-menu">
-                        <a href="../Book/add_book.php" class="dropdown-item">Add New Book
-                        <img src="abook.png" width="30" height="30">
-                    </a>
-                        <a href="../Book/manage_book.php" class="dropdown-item">Manage Book &nbsp
-                        <img src="mbook.png" width="30" height="30">
-                    </a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Category </a>
-                    <div class="dropdown-menu">
-                        <a href="../Category/add_cat.php" class="dropdown-item">Add New Category
-                        <img src="acat.ico" width="30" height="30">
-                    </a>
-                        <a href="../Category/manage_cat.php" class="dropdown-item">Manage Category &nbsp
-                        <img src="mcat.png" width="30" height="30">
-                    </a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Author</a>
-                    <div class="dropdown-menu">
-                        <a href="../Author/add_author.php" class="dropdown-item">Add New Author
-                        <img src="aauthor.png" width="25" height="25">
-                    </a>
-                        <a href="../Author/manage_author.php" class="dropdown-item">Manage Author
-                        <img src="mauthor.png" width="30" height="30">
-                    </a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a href="../Book/issue_book.php" class="nav-link">
-                        Issue Book</a>
-                </li>
+				</li>
+				<li class="nav-item dropdown ">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown"> Book
+
+					</a>
+					<div class="dropdown-menu">
+						<a href="../Book/add_book.php" class="dropdown-item">Add New Book
+							<img src="./images/abook.png" width="30" height="30">
+						</a>
+						<a href="../Book/manage_book.php" class="dropdown-item">Manage Book &nbsp
+							<img src="./images/mbook.png" width="30" height="30">
+						</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown ">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown"> Category </a>
+					<div class="dropdown-menu">
+						<a href="../Category/add_cat.php" class="dropdown-item">Add New Category
+							<img src="./images/acat.ico" width="30" height="30">
+						</a>
+						<a href="../Category/manage_cat.php" class="dropdown-item">Manage Category &nbsp
+							<img src="./images/mcat.png" width="30" height="30">
+						</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown ">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown"> Author</a>
+					<div class="dropdown-menu">
+						<a href="../Author/add_author.php" class="dropdown-item">Add New Author
+							<img src="./images/aauthor.png" width="25" height="25">
+						</a>
+						<a href="../Author/manage_author.php" class="dropdown-item">Manage Author
+							<img src="./images/mauthor.png" width="30" height="30">
+						</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a href="../Book/issue_book.php" class="nav-link">
+						Issue Book</a>
+				</li>
+				<li class="nav-item">
+					<a href="./return_book.php" class="nav-link">
+						Return Book</a>
+				</li>
 			</ul>
 		</div>
 	</nav>
 
-<br><br>
+	<br><br>
 	<span>
 		<marquee>This is library Management System. </marquee>
 	</span><br><br>
@@ -146,19 +151,21 @@ session_start();
 					<label>Book Name:</label>
 					<!-- <input type="text" name="book_name" class="form-control" required=""> -->
 					<select class="form-control" name="book_name">
-                        <option>-Select Book-</option>
-                        <?php
-                        $connection = mysqli_connect("localhost", "root", "");
-                        $db = mysqli_select_db($connection, "lms");
-                        $query = "select book_name from books";
-                        $query_run = mysqli_query($connection, $query);
-                        while ($row = mysqli_fetch_assoc($query_run)) {
-                        ?>
-                            <option><?php echo $row['book_name']; ?></option>
-                        <?php
-                        }
-                        ?>
-                    </select>
+						<option>-Select Book-</option>
+						<?php
+						$connection = mysqli_connect("localhost", "root", "");
+						$db = mysqli_select_db($connection, "lms");
+						// $query = "select DISTINCT book_name from books ";
+						$query = "select book_name from books where book_no IN (select books.book_no from books left join issued_books using(book_no) where issued_books.book_no is NULL)";
+						$query_run = mysqli_query($connection, $query);
+						while ($row = mysqli_fetch_assoc($query_run)) {
+
+						?>
+							<option><?php echo $row['book_name']; ?></option>
+						<?php
+						}
+						?>
+					</select>
 				</div>
 				<div class="form-group">
 					<label>Book Author:</label>
@@ -184,19 +191,19 @@ session_start();
 						<label>Student ID:</label>
 						<!-- <input type="text" name="student_id" class="form-control" required=""> -->
 						<select class="form-control" name="student_id">
-						<option>-Select Student-</option>
-						<?php
-						$connection = mysqli_connect("localhost", "root", "");
-						$db = mysqli_select_db($connection, "lms");
-						$query = "select id from users";
-						$query_run = mysqli_query($connection, $query);
-						while ($row = mysqli_fetch_assoc($query_run)) {
-						?>
-							<option><?php echo $row['id']; ?></option>
-						<?php
-						}
-						?>
-					</select>
+							<option>-Select Student-</option>
+							<?php
+							$connection = mysqli_connect("localhost", "root", "");
+							$db = mysqli_select_db($connection, "lms");
+							$query = "select id from users";
+							$query_run = mysqli_query($connection, $query);
+							while ($row = mysqli_fetch_assoc($query_run)) {
+							?>
+								<option><?php echo $row['id']; ?></option>
+							<?php
+							}
+							?>
+						</select>
 					</div>
 					<div class="form-group">
 						<label>Issue Date:</label>
@@ -218,6 +225,14 @@ if (isset($_POST['issue_book'])) {
 	$connection = mysqli_connect("localhost", "root", "");
 	$db = mysqli_select_db($connection, "lms");
 	$query = "insert into issued_books values(null,$_POST[book_no],'$_POST[book_name]','$_POST[book_author]',$_POST[student_id],1,'$_POST[issue_date]')";
+	$query1 = "insert into returnBook values(null,$_POST[book_no],1,'$_POST[issue_date]')";
 	$query_run = mysqli_query($connection, $query);
+	$query_run1 = mysqli_query($connection, $query1);
+?>
+	<script type="text/javascript">
+		alert("Book is issued")
+		window.location.href = "./issue_book.php";
+	</script>
+<?php
 }
 ?>

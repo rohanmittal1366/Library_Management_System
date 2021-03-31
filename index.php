@@ -15,8 +15,9 @@
             width: 300px;
             height: 450 px;
         }
-        body  {
-            background-image: url("lib.jpg");
+
+        body {
+            background-image: url("./images/lib.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
@@ -29,7 +30,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-            <img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
+                <img src="./images/abc1.jpeg" width="100" height="60"> &nbsp &nbsp
                 <a class="navbar-brand" href="index.php">Library Management System(LMS)</a>
             </div>
             <ul class="nav navbar-nav navbar-right">

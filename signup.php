@@ -11,19 +11,15 @@ require('./Admin/function.php');
             color: #FF0000;
         }
         body  {
-            background-image: url("bpic1.jpg");
+            background-image: url("./images/bpic1.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
         }
+
     </style>
 
-    <!-- <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href=""> -->
+  
 
     <meta charset="utf-8" name="viewpoint" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="bootstrap-5.0.0-beta2-dist/css\bootstrap.min.css">

@@ -12,7 +12,6 @@ while ($row = mysqli_fetch_assoc($query_run)) {
     $name = $row['name'];
     $email = $row['email'];
     $mobile = $row['mobile'];
-   
 }
 
 ?>
@@ -38,8 +37,9 @@ while ($row = mysqli_fetch_assoc($query_run)) {
             width: 300px;
             height: 450 px;
         }
-        body  {
-            background-image: url("tbg1.jpg");
+
+        body {
+            background-image: url("./images/tbg1.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
@@ -52,7 +52,7 @@ while ($row = mysqli_fetch_assoc($query_run)) {
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-            <img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
+                <img src="./images/abc1.jpeg" width="100" height="60"> &nbsp &nbsp
                 <a class="navbar-brand" href="admin_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
@@ -64,7 +64,8 @@ while ($row = mysqli_fetch_assoc($query_run)) {
             <font style="color: white">
                 <span>
                     <strong>
-                        EMAIL : <?php echo $_SESSION['name']; ?></strong>
+                        EMAIL : <?php echo $_SESSION['email']; ?>
+                    </strong>
                 </span>
             </font>
 
@@ -99,22 +100,22 @@ while ($row = mysqli_fetch_assoc($query_run)) {
         <div class="col-md-4"> </div>
         <div class="col-md-4">
             <form><b>
-                <div class="form-group">
-                    <label>Name: </label>
-                    <input type="text" class="form-control" value="<?php echo $name; ?>" disabled>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label>Email: </label>
-                    <input type="text" class="form-control" value="<?php echo $email; ?>" disabled>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label>Mobile: </label>
-                    <input type="text" class="form-control" value="<?php echo $mobile; ?>" disabled>
-                </div>
-                <br>
-    </b>
+                    <div class="form-group">
+                        <label>Name: </label>
+                        <input type="text" class="form-control" value="<?php echo $name; ?>" disabled>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Email: </label>
+                        <input type="text" class="form-control" value="<?php echo $email; ?>" disabled>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Mobile: </label>
+                        <input type="text" class="form-control" value="<?php echo $mobile; ?>" disabled>
+                    </div>
+                    <br>
+                </b>
             </form>
         </div>
     </div>

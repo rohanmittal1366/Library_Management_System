@@ -33,12 +33,14 @@ $query = "select issued_books.book_name,issued_books.book_author,issued_books.bo
             width: 300px;
             height: 450 px;
         }
-        body  {
-            background-image: url("xyz3.jpg");
+
+        body {
+            background-image: url("./images/xyz3.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
         }
+
         table {
             width: 100%;
             border: #000000;
@@ -52,7 +54,7 @@ $query = "select issued_books.book_name,issued_books.book_author,issued_books.bo
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-            <img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
+                <img src="./images/abc1.jpeg" width="100" height="60"> &nbsp &nbsp
                 <a class="navbar-brand" href="../admin_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
@@ -101,29 +103,47 @@ $query = "select issued_books.book_name,issued_books.book_author,issued_books.bo
                     </a>
                 </li>
                 <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Book </a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Book
+
+                    </a>
                     <div class="dropdown-menu">
-                        <a href="../Book/add_book.php" class="dropdown-item">Add New Book</a>
-                        <a href="../Book/manage_book.php" class="dropdown-item">Manage Book</a>
+                        <a href="../Book/add_book.php" class="dropdown-item">Add New Book
+                            <img src="./images/abook.png" width="30" height="30">
+                        </a>
+                        <a href="../Book/manage_book.php" class="dropdown-item">Manage Book &nbsp
+                            <img src="./images/mbook.png" width="30" height="30">
+                        </a>
                     </div>
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Category </a>
                     <div class="dropdown-menu">
-                        <a href="../Category/add_cat.php" class="dropdown-item">Add New Category</a>
-                        <a href="../Category/manage_cat.php" class="dropdown-item">Manage Category</a>
+                        <a href="../Category/add_cat.php" class="dropdown-item">Add New Category
+                            <img src="./images/acat.ico" width="30" height="30">
+                        </a>
+                        <a href="../Category/manage_cat.php" class="dropdown-item">Manage Category &nbsp
+                            <img src="./images/mcat.png" width="30" height="30">
+                        </a>
                     </div>
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Author</a>
                     <div class="dropdown-menu">
-                        <a href="../Author/add_author.php" class="dropdown-item">Add New Author</a>
-                        <a href="../Author/manage_author.php" class="dropdown-item">Manage Author</a>
+                        <a href="../Author/add_author.php" class="dropdown-item">Add New Author
+                            <img src="./images/aauthor.png" width="25" height="25">
+                        </a>
+                        <a href="../Author/manage_author.php" class="dropdown-item">Manage Author
+                            <img src="./images/mauthor.png" width="30" height="30">
+                        </a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <a href="../Book/issue_book.php" class="nav-link">
                         Issue Book</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../Book/return_book.php" class="nav-link">
+                        Return Book</a>
                 </li>
             </ul>
         </div>
@@ -131,7 +151,7 @@ $query = "select issued_books.book_name,issued_books.book_author,issued_books.bo
 
 
 
-<br>
+    <br>
     <span>
         <marquee> This is Library Management System. </marquee>
     </span><br><br><br>

@@ -10,13 +10,13 @@ require('.././Admin/function.php');
         .error {
             color: #FF0000;
         }
-        body  {
-            background-image: url("bpic1.jpg");
+
+        body {
+            background-image: url("./images/bpic1.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
         }
-        
     </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,7 +39,7 @@ require('.././Admin/function.php');
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-            <img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
+                <img src="./images/abc1.jpeg" width="100" height="60"> &nbsp &nbsp
                 <a class="navbar-brand" href="../index.php">Library Management System(LMS)</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
@@ -122,7 +122,7 @@ require('.././Admin/function.php');
             <center>
                 <h3>Admin Login Form</h3>
             </center><br><br>
-            
+
             <div class="form-group">
                 <input type="text" name="email" placeholder="Email" class="form-control item" required>
                 <span class="error">* <?php echo $emailErr; ?></span>

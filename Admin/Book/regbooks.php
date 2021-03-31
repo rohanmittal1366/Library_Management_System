@@ -33,12 +33,14 @@ $query = "select books.book_name,books.book_no,book_price,authors.author_name fr
             width: 300px;
             height: 450 px;
         }
-        body  {
-            background-image: url("xyz3.jpg");
+
+        body {
+            background-image: url("./images/xyz3.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
         }
+
         table {
             width: 100%;
             border: #000000;
@@ -49,10 +51,10 @@ $query = "select books.book_name,books.book_no,book_price,authors.author_name fr
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-            <img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
+                <img src="./images/abc1.jpeg" width="100" height="60"> &nbsp &nbsp
                 <a class="navbar-brand" href="../admin_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
@@ -74,20 +76,20 @@ $query = "select books.book_name,books.book_no,book_price,authors.author_name fr
                         My Profile
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="view_profile.php">
-                        <img src="view.png" width="30" height="30">
+                        <a class="dropdown-item" href="../view_profile.php">
+                            <img src="view.png" width="30" height="30">
                             View Profile
-                            
+
                         </a>
-                        <a class="dropdown-item" href="edit_profile.php">
-                        <img src="edit.png" width="30" height="30">
+                        <a class="dropdown-item" href="../edit_profile.php">
+                            <img src="edit.png" width="30" height="30">
                             Edit Profile
-                            
+
                         </a>
-                        <a class="dropdown-item" href="change_password.php">
-                        <img src="cpass.png" width="30" height="30">
+                        <a class="dropdown-item" href="../change_password.php">
+                            <img src="cpass.png" width="30" height="30">
                             Change Password
-                            
+
                         </a>
                     </div>
                 </li>
@@ -107,49 +109,53 @@ $query = "select books.book_name,books.book_no,book_price,authors.author_name fr
                     </a>
                 </li>
                 <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Book 
-                    
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Book
+
                     </a>
                     <div class="dropdown-menu">
                         <a href="../Book/add_book.php" class="dropdown-item">Add New Book
-                        <img src="abook.png" width="30" height="30">
-                    </a>
+                            <img src="./images/abook.png" width="30" height="30">
+                        </a>
                         <a href="../Book/manage_book.php" class="dropdown-item">Manage Book &nbsp
-                        <img src="mbook.png" width="30" height="30">
-                    </a>
+                            <img src="./images/mbook.png" width="30" height="30">
+                        </a>
                     </div>
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Category </a>
                     <div class="dropdown-menu">
                         <a href="../Category/add_cat.php" class="dropdown-item">Add New Category
-                        <img src="acat.ico" width="30" height="30">
-                    </a>
+                            <img src="./images/acat.ico" width="30" height="30">
+                        </a>
                         <a href="../Category/manage_cat.php" class="dropdown-item">Manage Category &nbsp
-                        <img src="mcat.png" width="30" height="30">
-                    </a>
+                            <img src="./images/mcat.png" width="30" height="30">
+                        </a>
                     </div>
                 </li>
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown"> Author</a>
                     <div class="dropdown-menu">
                         <a href="../Author/add_author.php" class="dropdown-item">Add New Author
-                        <img src="aauthor.png" width="25" height="25">
-                    </a>
+                            <img src="./images/aauthor.png" width="25" height="25">
+                        </a>
                         <a href="../Author/manage_author.php" class="dropdown-item">Manage Author
-                        <img src="mauthor.png" width="30" height="30">
-                    </a>
+                            <img src="./images/mauthor.png" width="30" height="30">
+                        </a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <a href="../Book/issue_book.php" class="nav-link">
                         Issue Book</a>
                 </li>
+                <li class="nav-item">
+                    <a href="../Book/return_book.php" class="nav-link">
+                        Return Book</a>
+                </li>
             </ul>
         </div>
     </nav>
 
-<br><br>
+    <br><br>
 
     <span>
         <marquee> This is Library Management System. </marquee>

@@ -10,7 +10,8 @@ $query = "select book_name,book_author,book_no from issued_books where student_i
 
 
 ?>
-<!DOCTYPE html>
+
+<!DOCTYPE htm>
 
 <html>
 
@@ -32,12 +33,14 @@ $query = "select book_name,book_author,book_no from issued_books where student_i
             width: 300px;
             height: 450 px;
         }
-        body  {
-            background-image: url("xyz3.jpg");
+
+        body {
+            background-image: url("./images/xyz3.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
         }
+
         table {
             width: 100%;
             border: #000000;
@@ -51,7 +54,7 @@ $query = "select book_name,book_author,book_no from issued_books where student_i
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-            <img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
+                <img src="./images/abc1.jpeg" width="100" height="60"> &nbsp &nbsp
                 <a class="navbar-brand" href="../admin_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
@@ -91,9 +94,9 @@ $query = "select book_name,book_author,book_no from issued_books where student_i
         </div>
     </nav>
 
-    
 
-<br>
+
+    <br>
     <span>
         <marquee> This is Library Management System. </marquee>
     </span><br><br><br>
@@ -106,7 +109,7 @@ $query = "select book_name,book_author,book_no from issued_books where student_i
                         <th>Book Name:</th>
                         <th>Book Author:</th>
                         <th>Book Number:</th>
-                        
+
                     </tr>
                     <?php
                     $query_run = mysqli_query($connection, $query);
@@ -114,13 +117,13 @@ $query = "select book_name,book_author,book_no from issued_books where student_i
                         $book_name = $row['book_name'];
                         $author = $row['book_author'];
                         $book_no = $row['book_no'];
-                       
+
                     ?>
                         <tr>
                             <td><?php echo $book_name; ?></td>
                             <td><?php echo $author; ?></td>
                             <td><?php echo $book_no; ?></td>
-                            
+
 
                         </tr>
                     <?php

@@ -12,12 +12,12 @@ while ($row = mysqli_fetch_assoc($query_run)) {
     $name = $row['name'];
     $email = $row['email'];
     $mobile = $row['mobile'];
-    
 }
 
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
 
 
@@ -36,8 +36,9 @@ while ($row = mysqli_fetch_assoc($query_run)) {
             width: 300px;
             height: 450 px;
         }
-        body  {
-            background-image: url("tbg1.jpg");
+
+        body {
+            background-image: url("./images/tbg1.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
@@ -47,10 +48,11 @@ while ($row = mysqli_fetch_assoc($query_run)) {
 
 <body>
 
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-            <img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
+                <img src="./images/abc1.jpeg" width="100" height="60"> &nbsp &nbsp
                 <a class="navbar-brand" href="admin_dashboard.php">Library Management System(LMS)</a>
             </div>
             <font style="color: white">
@@ -89,7 +91,7 @@ while ($row = mysqli_fetch_assoc($query_run)) {
             </ul>
         </div>
     </nav><br>
-<br>
+    <br>
     <span>
         <marquee> This is Library Management System. </marquee>
     </span><br><br><br>
@@ -109,7 +111,7 @@ while ($row = mysqli_fetch_assoc($query_run)) {
                     <label>Mobile:</label>
                     <input type="text" class="form-control" value="<?php echo $mobile; ?>" name="mobile">
                 </div>
-                
+
                 <br>
                 <button type="submit" name="update" class="btn btn-primary">Update</button>
             </form>
