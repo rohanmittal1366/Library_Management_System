@@ -144,7 +144,7 @@ session_start();
                 <div class="card-header">Registered Users: </div>
                 <div class="card-body">
                     <p class="card-text">Total no. of users: <?php echo get_user_count(); ?> </p>
-                    <a href="./User/regusers.php" class="btn btn-danger" target="_blank">View Registered Users</a>
+                    <a href="./User/regusers.php" class="btn btn-danger">View Registered Users</a>
                 </div>
             </div>
         </div>
@@ -153,7 +153,7 @@ session_start();
                 <div class="card-header">Registered Books: </div>
                 <div class="card-body">
                     <p class="card-text">Total no. of available Books: <?php echo get_book_count(); ?></p>
-                    <a href="./Book/regbooks.php" class="btn btn-primary" target="_blank">View Available Books</a>
+                    <a href="./Book/regbooks.php" class="btn btn-primary">View Available Books</a>
                 </div>
             </div>
         </div>
@@ -162,7 +162,7 @@ session_start();
                 <div class="card-header">Registered Category: </div>
                 <div class="card-body">
                     <p class="card-text">Total no. of book's category: <?php echo get_category_count(); ?></p>
-                    <a href="./Category/regcat.php" class="btn btn-danger" target="_blank">View Category</a>
+                    <a href="./Category/regcat.php" class="btn btn-danger">View Category</a>
                 </div>
             </div>
 
@@ -172,7 +172,7 @@ session_start();
                 <div class="card-header">Registered Authors: </div>
                 <div class="card-body">
                     <p class="card-text">Total no. of Authors: <?php echo get_author_count(); ?></p>
-                    <a href="./Author/regauth.php" class="btn btn-primary" target="_blank">View Registered Authors</a>
+                    <a href="./Author/regauth.php" class="btn btn-primary">View Registered Authors</a>
                 </div>
             </div>
         </div><br>
@@ -182,7 +182,7 @@ session_start();
                 <div class="card-header">Issued Books: </div>
                 <div class="card-body">
                     <p class="card-text">Total no. of issued Books: <?php echo get_issued_book_count(); ?> </p>
-                    <a href="./Book/view_issued_book.php" class="btn btn-primary" target="_blank">View Issued Books</a>
+                    <a href="./Book/view_issued_book.php" class="btn btn-primary">View Issued Books</a>
                 </div>
             </div>
         </div>
