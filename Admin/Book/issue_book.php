@@ -1,6 +1,17 @@
 <?php
 require('../function.php');
 session_start();
+
+if (!isset($_SESSION['email'])) {
+?>
+	<script type="text/javascript">
+		alert("You are not Logged-in ")
+		window.location.href = "../../index.php";
+	</script>
+<?php
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>

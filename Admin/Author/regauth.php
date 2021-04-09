@@ -1,6 +1,17 @@
 <?php
 require('../function.php');
 session_start();
+
+if (!isset($_SESSION['email'])) {
+?>
+    <script type="text/javascript">
+        alert("You are not Logged-in ")
+        window.location.href = "../../index.php";
+    </script>
+<?php
+}
+
+
 $connection = mysqli_connect("localhost", "root", "");
 $db = mysqli_select_db($connection, "lms");
 $aut_name = "";
@@ -73,22 +84,22 @@ $query = "select * from authors";
                         My Profile
                     </a>
                     <div class="dropdown-menu">
-						<a class="dropdown-item" href="../view_profile.php">
-							<img src="../images/view.png" width="30" height="30">
-							View Profile
+                        <a class="dropdown-item" href="../view_profile.php">
+                            <img src="../images/view.png" width="30" height="30">
+                            View Profile
 
-						</a>
-						<a class="dropdown-item" href="../edit_profile.php">
-							<img src="../images/edit.png" width="30" height="30">
-							Edit Profile
+                        </a>
+                        <a class="dropdown-item" href="../edit_profile.php">
+                            <img src="../images/edit.png" width="30" height="30">
+                            Edit Profile
 
-						</a>
-						<a class="dropdown-item" href="../change_password.php">
-							<img src="../images/cpass.png" width="30" height="30">
-							Change Password
+                        </a>
+                        <a class="dropdown-item" href="../change_password.php">
+                            <img src="../images/cpass.png" width="30" height="30">
+                            Change Password
 
-						</a>
-					</div>
+                        </a>
+                    </div>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="../../logout.php">
                         Logout

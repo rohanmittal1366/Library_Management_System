@@ -10,16 +10,16 @@ require('./Admin/function.php');
         .error {
             color: #FF0000;
         }
-        body  {
+
+        body {
             background-image: url("./images/bpic1.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
         }
-
     </style>
 
-  
+
 
     <meta charset="utf-8" name="viewpoint" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="bootstrap-5.0.0-beta2-dist/css\bootstrap.min.css">
@@ -35,7 +35,7 @@ require('./Admin/function.php');
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="navbar-header">
-            <img src="abc1.jpeg" width="100" height="60"> &nbsp &nbsp
+                <img src="./user/images/abc1.jpeg" width="100" height="60"> &nbsp &nbsp
                 <a class="navbar-brand" href="index.php">Library Management System(LMS)</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
@@ -45,7 +45,7 @@ require('./Admin/function.php');
                 <li class="nav-item">
                     <a class="nav-link" href="User/user_login.php">User Login</a>
                 </li>
-                
+
             </ul>
         </div>
     </nav><br>
@@ -56,6 +56,9 @@ require('./Admin/function.php');
 
 
     <?php
+
+
+
     session_start();
     $name = $email = $password = $mobile = $add = "";
     $nameErr = $emailErr = $passwordErr = $mobileErr = $addErr = "";

@@ -1,6 +1,16 @@
 <?php
 session_start();
 
+
+if (!isset($_SESSION['email'])) {
+?>
+    <script type="text/javascript">
+        alert("You are not Logged-in ")
+        window.location.href = "../index.php";
+    </script>
+<?php
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,25 +27,19 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style type="text/css">
-        #side_bar {
-            background-color: whitesmoke;
-            padding: 50px;
-            width: 300px;
-            height: 450 px;
-        }
-
         body {
-            background-image: url("./images/final.jpeg");
+            background-image: url("./images/final2.jpg");
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100% 750px;
             background-color: #cccccc;
+
         }
     </style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
         <div class="container-fluid">
             <div class="navbar-header">
                 <img src="./images/abc1.jpeg" width="100" height="60"> &nbsp &nbsp
@@ -90,17 +94,20 @@ session_start();
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <form action="update_password.php" method="post">
-                <div class="form-group">
-                    <label><b>Enter Current Password:</b></label>
-                    <input type="password" name="old_password" class="form-control" required>
-                </div><br>
-                <div class="form-group">
-                    <label><b>Enter New Password:</b></label>
-                    <input type="password" name="new_password" class="form-control" required>
-                </div><br>
-                <button type="submit" name="update" class="btn btn-primary">Update Password</button>
-            </form>
+
+            <div class="container-fluid1">
+                <form action="update_password.php" method="post">
+                    <div class="form-group">
+                        <label><b>Enter Current Password:</b></label>
+                        <input type="password" name="old_password" class="form-control" required>
+                    </div><br>
+                    <div class="form-group">
+                        <label><b>Enter New Password:</b></label>
+                        <input type="password" name="new_password" class="form-control" required>
+                    </div><br>
+                    <button type="submit" name="update" class="btn btn-primary">Update Password</button>
+                </form>
+            </div>
         </div>
         <div class="col-md-4"></div>
     </div>
