@@ -114,9 +114,8 @@ $query = "select book_name,book_author,book_no from issued_books where student_i
 
 
     <br>
-    <span>
-        <marquee> This is Library Management System. </marquee>
-    </span><br><br><br>
+    <?php include '../header.php'; ?>
+    <br><br>
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">

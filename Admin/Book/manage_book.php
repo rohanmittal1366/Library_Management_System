@@ -158,9 +158,7 @@ if (!isset($_SESSION['email'])) {
     </nav>
 
     <br>
-    <span>
-        <marquee> This is Library Management System. </marquee>
-    </span><br><br>
+    <?php include '../../header.php'; ?>
     <br><br><br>
     <div class="row">
         <div class="col-md-2"></div>

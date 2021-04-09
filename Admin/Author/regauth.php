@@ -166,9 +166,7 @@ $query = "select * from authors";
 
 
     <br><br>
-    <span>
-        <marquee> This is Library Management System. </marquee>
-    </span><br><br><br>
+    <?php include '../../header.php'; ?><br><br>
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">

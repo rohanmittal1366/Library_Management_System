@@ -47,9 +47,9 @@
         </div>
     </nav><br>
 
-    <span>
-        <marquee> This is Library Management System. </marquee>
-    </span><br>
+
+
+    <?php include 'header.php'; ?>
 
     <div class="row">
 

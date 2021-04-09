@@ -168,9 +168,7 @@ $query = "select books.book_name,books.book_no,book_price,authors.author_name fr
 
     <br><br>
 
-    <span>
-        <marquee> This is Library Management System. </marquee>
-    </span><br><br><br>
+    <?php include '../../header.php'; ?><br>
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">

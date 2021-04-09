@@ -125,9 +125,8 @@ function get_book_count()
         </div>
     </nav><br>
 
-    <span>
-        <marquee> This is Library Management System. </marquee>
-    </span><br><br><br>
+    <?php include '../header.php'; ?>
+
     <center>
         <div class="row">
             <div class="col-md-3">

@@ -157,9 +157,7 @@ if (!isset($_SESSION['email'])) {
 
 
     <br>
-    <span>
-        <marquee> This is Library Management System. </marquee>
-    </span><br><br>
+    <?php include '../../header.php'; ?><br>
 
     <?php
     $authorErr = $author_name = "";

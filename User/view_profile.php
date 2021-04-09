@@ -110,9 +110,7 @@ while ($row = mysqli_fetch_assoc($query_run)) {
         </div>
     </nav><br>
 
-    <span>
-        <marquee> This is Library Management System. </marquee>
-    </span><br><br>
+    <?php include '../header.php'; ?><br>
     <b>
         <div class="row">
             <div class="col-md-4"> </div>
