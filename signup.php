@@ -55,8 +55,6 @@ require('./Admin/function.php');
 
     <?php
 
-
-
     session_start();
     $name = $email = $password = $mobile = $add = "";
     $nameErr = $emailErr = $passwordErr = $mobileErr = $addErr = "";

@@ -36,9 +36,9 @@ if (!isset($_SESSION['email'])) {
         }
 
         body {
-            background-image: url("../images/tbg1.jpg");
+            background-image: url("../images/new_pic5.jpg");
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100% 750px;
             background-color: #cccccc;
         }
     </style>
@@ -153,11 +153,11 @@ if (!isset($_SESSION['email'])) {
     <br><br>
     <?php include '../../header.php'; ?><br>
     <div class="row">
-        <div class="col-md-4"></div>
+        <div class="col-md-2"></div>
         <div class="col-md-4">
             <form action="" method="post">
                 <div class="form-group">
-                    <label>Book No:</label>
+                    <b> <label>Book No:</label></b><br><br>
                     <!-- <input type="text" name="book_name" class="form-control" required=""> -->
                     <select class="form-control" name="book_no">
                         <option>-Select Book No-</option>
@@ -179,7 +179,7 @@ if (!isset($_SESSION['email'])) {
 
 
                 <div class="form-group">
-                    <label>Return Date:</label>
+                    <br> <b> <label>Return Date:</label></b><br><br>
                     <input type="text" name="date" class="form-control" value="<?php echo date("yy-m-d"); ?>">
                 </div>
                 <br>

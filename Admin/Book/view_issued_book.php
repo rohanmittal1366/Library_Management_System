@@ -57,6 +57,12 @@ $query = "select issued_books.book_name,issued_books.book_author,issued_books.bo
             border: #000000;
             background-color: white;
         }
+
+        .col-md-8 {
+            overflow-x: auto;
+            height: 400px;
+
+        }
     </style>
 </head>
 

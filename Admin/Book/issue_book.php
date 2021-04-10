@@ -36,10 +36,11 @@ if (!isset($_SESSION['email'])) {
 		}
 
 		body {
-			background-image: url("../images/tbg1.jpg");
+			background-image: url("../images/new_pic5.jpg");
 			background-repeat: no-repeat;
-			background-size: cover;
+			background-size: 100% 750px;
 			background-color: #cccccc;
+
 		}
 	</style>
 </head>
@@ -153,11 +154,11 @@ if (!isset($_SESSION['email'])) {
 	<br><br>
 	<?php include '../../header.php'; ?><br>
 	<div class="row">
-		<div class="col-md-4"></div>
+		<div class="col-md-2"></div>
 		<div class="col-md-4">
 			<form action="" method="post">
 				<div class="form-group">
-					<label>Book Name:</label>
+					<b><label>Book Name:</label></b>
 					<!-- <input type="text" name="book_name" class="form-control" required=""> -->
 					<select class="form-control" name="book_name">
 						<option>-Select Book-</option>
@@ -177,7 +178,7 @@ if (!isset($_SESSION['email'])) {
 					</select>
 				</div>
 				<div class="form-group">
-					<label>Book Author:</label>
+					<b><label>Book Author:</label></b>
 					<select class="form-control" name="book_author">
 						<option>-Select author-</option>
 						<?php
@@ -193,11 +194,11 @@ if (!isset($_SESSION['email'])) {
 						?>
 					</select>
 					<div class="form-group">
-						<label>Book Number:</label>
+						<b> <label>Book Number:</label></b>
 						<input type="text" name="book_no" class="form-control" required="">
 					</div>
 					<div class="form-group">
-						<label>Student ID:</label>
+						<b><label>Student ID:</label></b>
 						<!-- <input type="text" name="student_id" class="form-control" required=""> -->
 						<select class="form-control" name="student_id">
 							<option>-Select Student-</option>
@@ -215,7 +216,7 @@ if (!isset($_SESSION['email'])) {
 						</select>
 					</div>
 					<div class="form-group">
-						<label>Issue Date:</label>
+						<b><label>Issue Date:</label></b>
 						<input type="text" name="issue_date" class="form-control" value="<?php echo date("yy-m-d"); ?>" required="">
 					</div>
 				</div><br>

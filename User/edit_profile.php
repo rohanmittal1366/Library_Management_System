@@ -50,7 +50,7 @@ while ($row = mysqli_fetch_assoc($query_run)) {
         }
 
         body {
-            background-image: url("./images/tbg1.jpg");
+            background-image: url("./images/final3.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
@@ -107,28 +107,28 @@ while ($row = mysqli_fetch_assoc($query_run)) {
                     </a></li>
             </ul>
         </div>
-    </nav><br><br>
+    </nav><br>
 
     <?php include '../header.php'; ?>
 
     <div class="row">
         <div class="col-md-4"> </div>
-        <div class="col-md-4">
+        <div class="col-md-4" style="background-color: rgb(197, 56, 51); padding: 30px">
             <form action="update_profile.php" method="post">
                 <div class="form-group">
-                    <label>Name:</label>
+                    <b><label>Name:</label></b><br><br>
                     <input type="text" class="form-control" value="<?php echo $name; ?>" name="name">
-                </div>
+                </div><br>
                 <div class="form-group">
-                    <label>Email:</label>
+                    <b><label>Email:</label></b><br><br>
                     <input type="text" class="form-control" value="<?php echo $email; ?>" name="email" disabled>
-                </div>
+                </div><br>
                 <div class="form-group">
-                    <label>Mobile:</label>
+                    <b><label>Mobile:</label></b><br><br>
                     <input type="text" class="form-control" value="<?php echo $mobile; ?>" name="mobile">
-                </div>
+                </div><br>
                 <div class="form-group">
-                    <label>Address:</label>
+                    <b><label>Address:</label></b><br><br>
                     <textarea rows="3" cols="40" name="address" class="form-control"><?php echo $address; ?></textarea>
                 </div>
                 <br>

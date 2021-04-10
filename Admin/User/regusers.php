@@ -35,13 +35,6 @@ $query = "select * from users ";
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style type="text/css">
-        #side_bar {
-            background-color: whitesmoke;
-            padding: 50px;
-            width: 300px;
-            height: 450 px;
-        }
-
         body {
             background-image: url("../images/xyz3.jpg");
             background-repeat: no-repeat;
@@ -53,6 +46,12 @@ $query = "select * from users ";
             width: 100%;
             border: #000000;
             background-color: white;
+        }
+
+        .scrolling {
+            overflow-x: auto;
+            height: 400px;
+
         }
     </style>
 </head>
@@ -170,32 +169,34 @@ $query = "select * from users ";
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <form>
-                <table class="table-bordered" width="900px" style="text-align:center">
-                    <tr>
-                        <th>Name:</th>
-                        <th>Email:</th>
-                        <th>Mobile:</th>
-                        <th>Address:</th>
-                    </tr>
-                    <?php
-                    $query_run = mysqli_query($connection, $query);
-                    while ($row = mysqli_fetch_assoc($query_run)) {
-                        $name = $row['name'];
-                        $email = $row['email'];
-                        $mobile = $row['mobile'];
-                        $address = $row['address'];
-                    ?>
+                <div class="scrolling">
+                    <table class="table-bordered" width="900px" style="text-align:center">
                         <tr>
-                            <td><?php echo $name; ?></td>
-                            <td><?php echo $email; ?></td>
-                            <td><?php echo $mobile; ?></td>
-                            <td><?php echo $address; ?></td>
-
+                            <th>Name:</th>
+                            <th>Email:</th>
+                            <th>Mobile:</th>
+                            <th>Address:</th>
                         </tr>
-                    <?php
-                    }
-                    ?>
-                </table>
+                        <?php
+                        $query_run = mysqli_query($connection, $query);
+                        while ($row = mysqli_fetch_assoc($query_run)) {
+                            $name = $row['name'];
+                            $email = $row['email'];
+                            $mobile = $row['mobile'];
+                            $address = $row['address'];
+                        ?>
+                            <tr>
+                                <td><?php echo $name; ?></td>
+                                <td><?php echo $email; ?></td>
+                                <td><?php echo $mobile; ?></td>
+                                <td><?php echo $address; ?></td>
+
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </table>
+                </div>
             </form>
         </div>
         <div class="col-md-2"></div>

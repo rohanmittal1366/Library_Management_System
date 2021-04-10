@@ -28,7 +28,7 @@ if (!isset($_SESSION['email'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style type="text/css">
         body {
-            background-image: url("./images/final2.jpg");
+            background-image: url("./images/final3.jpg");
             background-repeat: no-repeat;
             background-size: 100% 750px;
             background-color: #cccccc;
@@ -88,24 +88,23 @@ if (!isset($_SESSION['email'])) {
         </div>
     </nav><br>
     <br>
-    <?php include '../header.php'; ?>
+    <?php include '../header.php'; ?><br><br>
     <div class="row">
         <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-4" style="background-color: rgb(197, 56, 51); padding: 30px">
 
-            <div class="container-fluid1">
-                <form action="update_password.php" method="post">
-                    <div class="form-group">
-                        <label><b>Enter Current Password:</b></label>
-                        <input type="password" name="old_password" class="form-control" required>
-                    </div><br>
-                    <div class="form-group">
-                        <label><b>Enter New Password:</b></label>
-                        <input type="password" name="new_password" class="form-control" required>
-                    </div><br>
-                    <button type="submit" name="update" class="btn btn-primary">Update Password</button>
-                </form>
-            </div>
+            <form action="update_password.php" method="post">
+                <div class="form-group">
+                    <label><b>Enter Current Password:</b></label><br><br>
+                    <input type="password" name="old_password" class="form-control" required>
+                </div><br>
+                <div class="form-group">
+                    <label><b>Enter New Password:</b></label><br><br>
+                    <input type="password" name="new_password" class="form-control" required>
+                </div><br>
+                <button type="submit" name="update" class="btn btn-primary">Update Password</button>
+            </form>
+
         </div>
         <div class="col-md-4"></div>
     </div>

@@ -15,11 +15,11 @@ if (!isset($_SESSION['email'])) {
 $connection = mysqli_connect("localhost", "root", "");
 $db = mysqli_select_db($connection, "lms");
 $book_name = "";
-$author = "";
-$category = "";
 $book_no = "";
-$price = "";
-$query = "select books.book_name,books.book_no,book_price,authors.author_name from books left join authors on books.author_id = authors.author_id";
+$status = "";
+$date = "";
+$query = "select book_no,status,date from returnbook";
+
 
 ?>
 <!DOCTYPE html>
@@ -38,13 +38,6 @@ $query = "select books.book_name,books.book_no,book_price,authors.author_name fr
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style type="text/css">
-        #side_bar {
-            background-color: whitesmoke;
-            padding: 50px;
-            width: 300px;
-            height: 450 px;
-        }
-
         body {
             background-image: url("../images/xyz3.jpg");
             background-repeat: no-repeat;
@@ -58,10 +51,11 @@ $query = "select books.book_name,books.book_no,book_price,authors.author_name fr
             background-color: white;
         }
 
-        .col-md-8 {
+
+        .scrolling {
             overflow-x: auto;
             height: 400px;
-
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -172,39 +166,50 @@ $query = "select books.book_name,books.book_no,book_price,authors.author_name fr
         </div>
     </nav>
 
-    <br><br>
 
-    <?php include '../../header.php'; ?><br>
+
+    <br>
+    <?php include '../../header.php'; ?><br><br>
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <form>
-                <table class="table-bordered" width="900px" style="text-align:center">
-                    <tr>
-                        <th>Name:</th>
-                        <th>Author:</th>
-                        <th>Price:</th>
-                        <th>Number:</th>
-                    </tr>
-                    <?php
-                    $query_run = mysqli_query($connection, $query);
-                    while ($row = mysqli_fetch_assoc($query_run)) {
-                        $book_name = $row['book_name'];
-                        $author = $row['author_name'];
-                        $price = $row['book_price'];
-                        $book_no = $row['book_no'];
-                    ?>
+                <div class="scrolling">
+                    <table class="table-bordered" width="900px" style="text-align:center;">
                         <tr>
-                            <td><?php echo $book_name; ?></td>
-                            <td><?php echo $author; ?></td>
-                            <td><?php echo $price; ?></td>
-                            <td><?php echo $book_no; ?></td>
+                            <th>Book Number:</th>
+                            <th>Status:</th>
+                            <th>Date:</th>
 
                         </tr>
-                    <?php
-                    }
-                    ?>
-                </table>
+
+                        <?php
+                        $query_run = mysqli_query($connection, $query);
+                        while ($row = mysqli_fetch_assoc($query_run)) {
+                            $book_no = $row['book_no'];
+                            if ($row['status'] == "1") {
+                                $status = "Book issued";
+                            } else {
+                                $status = "Book return";
+                            }
+
+                            $date = $row['date'];
+
+                        ?>
+
+                            <tr>
+                                <td><?php echo $book_no; ?></td>
+                                <td><?php echo $status; ?></td>
+                                <td><?php echo $date; ?></td>
+
+
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </table>
+                </div>
+
             </form>
         </div>
         <div class="col-md-2"></div>

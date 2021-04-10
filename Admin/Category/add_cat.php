@@ -37,7 +37,7 @@ if (!isset($_SESSION['email'])) {
         }
 
         body {
-            background-image: url("../images/tbg1.jpg");
+            background-image: url("../images/new_pic6.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;

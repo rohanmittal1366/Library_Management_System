@@ -35,7 +35,7 @@ if (!isset($_SESSION['email'])) {
         }
 
         body {
-            background-image: url("./images/tbg1.jpg");
+            background-image: url("./images/testing3.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
@@ -97,14 +97,14 @@ if (!isset($_SESSION['email'])) {
     <?php include '../header.php'; ?><br><br>
     <div class="row">
         <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <form action="update_password.php" method="post">
+        <div class="col-md-4" style="background-color: rgb(197, 56, 51); padding: 30px">
+            <form action=" update_password.php" method="post">
                 <div class="form-group">
-                    <label>Enter Current Password:</label>
+                    <b><label>Enter Current Password:</label></b><br><br>
                     <input type="password" name="old_password" class="form-control" required>
                 </div><br>
                 <div class="form-group">
-                    <label>Enter New Password:</label>
+                    <b> <label>Enter New Password:</label></b><br><br>
                     <input type="password" name="new_password" class="form-control" required>
                 </div><br>
                 <button type="submit" name="update" class="btn btn-primary">Update Password</button>

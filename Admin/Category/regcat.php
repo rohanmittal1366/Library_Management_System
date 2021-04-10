@@ -52,6 +52,12 @@ $query = "select * from category";
             border: #000000;
             background-color: white;
         }
+
+        .col-md-8 {
+            overflow-x: auto;
+            height: 400px;
+
+        }
     </style>
 </head>
 

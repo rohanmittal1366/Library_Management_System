@@ -146,57 +146,71 @@ if (!isset($_SESSION['email'])) {
     <br>
     <?php include '../header.php'; ?>
     <br>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card bg-light" style="width: 300px;">
-                <div class="card-header">Registered Users: </div>
-                <div class="card-body">
-                    <p class="card-text">Total no. of users: <?php echo get_user_count(); ?> </p>
-                    <a href="./User/regusers.php" class="btn btn-danger">View Registered Users</a>
+    <center>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card bg-light" style="width: 300px;">
+                    <div class="card-header">Registered Users: </div>
+                    <div class="card-body">
+                        <p class="card-text">Total no. of users: <?php echo get_user_count(); ?> </p>
+                        <a href="./User/regusers.php" class="btn btn-danger">View Registered Users</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card bg-light" style="width: 300px;">
-                <div class="card-header">Registered Books: </div>
-                <div class="card-body">
-                    <p class="card-text">Total no. of available Books: <?php echo get_book_count(); ?></p>
-                    <a href="./Book/regbooks.php" class="btn btn-primary">View Available Books</a>
+            <div class="col-md-4">
+                <div class="card bg-light" style="width: 300px;">
+                    <div class="card-header">Registered Books: </div>
+                    <div class="card-body">
+                        <p class="card-text">Total no. of available Books: <?php echo get_book_count(); ?></p>
+                        <a href="./Book/regbooks.php" class="btn btn-primary">View Available Books</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card bg-light" style="width: 300px;">
-                <div class="card-header">Registered Category: </div>
-                <div class="card-body">
-                    <p class="card-text">Total no. of book's category: <?php echo get_category_count(); ?></p>
-                    <a href="./Category/regcat.php" class="btn btn-danger">View Category</a>
+            <div class="col-md-4">
+                <div class="card bg-light" style="width: 300px;">
+                    <div class="card-header">Registered Category: </div>
+                    <div class="card-body">
+                        <p class="card-text">Total no. of book's category: <?php echo get_category_count(); ?></p>
+                        <a href="./Category/regcat.php" class="btn btn-danger">View Category</a>
+                    </div>
+                </div>
+                <br><br><br>
+            </div>
+    </center>
+    <center>
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="card bg-light" style="width: 300px;">
+                    <div class="card-header">Registered Authors: </div>
+                    <div class="card-body">
+                        <p class="card-text">Total no. of Authors: <?php echo get_author_count(); ?></p>
+                        <a href="./Author/regauth.php" class="btn btn-primary">View Registered Authors</a>
+                    </div>
                 </div>
             </div>
 
-        </div>
-        <div class="col-md-3">
-            <div class="card bg-light" style="width: 300px;">
-                <div class="card-header">Registered Authors: </div>
-                <div class="card-body">
-                    <p class="card-text">Total no. of Authors: <?php echo get_author_count(); ?></p>
-                    <a href="./Author/regauth.php" class="btn btn-primary">View Registered Authors</a>
+            <div class="col-md-4">
+                <div class="card bg-light" style="width: 300px;">
+                    <div class="card-header">Issued Books: </div>
+                    <div class="card-body">
+                        <p class="card-text">Total no. of issued Books: <?php echo get_issued_book_count(); ?> </p>
+                        <a href="./Book/view_issued_book.php" class="btn btn-danger">View Issued Books</a>
+                    </div>
                 </div>
             </div>
-        </div><br>
-        <br><br>
-        <div class="col-md-3">
-            <div class="card bg-light" style="width: 300px;">
-                <div class="card-header">Issued Books: </div>
-                <div class="card-body">
-                    <p class="card-text">Total no. of issued Books: <?php echo get_issued_book_count(); ?> </p>
-                    <a href="./Book/view_issued_book.php" class="btn btn-primary">View Issued Books</a>
+            <div class="col-md-4">
+                <div class="card bg-light" style="width: 300px;">
+                    <div class="card-header">Book Transaction: </div>
+                    <div class="card-body">
+                        <p class="card-text">Total no. of Books Transaction: <?php echo get_transaction_count(); ?> </p>
+                        <a href="./Book/view_transaction_book.php" class="btn btn-primary">View Book Transaction</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-
+    </center>
 
 
 

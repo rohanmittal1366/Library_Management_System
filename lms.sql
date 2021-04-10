@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2021 at 12:13 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Generation Time: Apr 10, 2021 at 03:21 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `password`, `mobile`) VALUES
-(1, 'admin', 'admin@gmail.com', 'admin@1234', 1148458757);
+(1, 'admin', 'admin@gmail.com', '1234', 1148458757);
 
 -- --------------------------------------------------------
 
@@ -61,7 +61,8 @@ INSERT INTO `authors` (`author_id`, `author_name`) VALUES
 (101, 'M D Guptaa'),
 (102, 'Chetan Bhagat'),
 (103, 'Robin Sharma'),
-(107, 'J.K Rowling');
+(107, 'J.K Rowling'),
+(108, 'Amish Tripathi1');
 
 -- --------------------------------------------------------
 
@@ -83,10 +84,12 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`book_id`, `book_name`, `author_id`, `cat_id`, `book_no`, `book_price`) VALUES
-(1, 'Software engineering', 101, 4, 5231, 300),
-(2, 'Data structure', 102, 2, 4518, 300),
+(2, 'Data structure', 107, 4, 4518, 300),
 (39, 'You Can WIn', 102, 5, 123, 200),
-(40, 'Harry Potter', 107, 2, 1333, 2000);
+(40, 'Harry Potter', 107, 2, 1333, 2000),
+(42, 'Mind power', 103, 2, 1010, 500),
+(43, 'Software engineering', 101, 4, 2025, 500),
+(45, 'hello java', 102, 2, 14441, 230);
 
 -- --------------------------------------------------------
 
@@ -104,11 +107,11 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`cat_id`, `cat_name`) VALUES
-(1, 'Electrical '),
 (2, 'Novel'),
 (4, 'Motivational'),
 (5, 'Story'),
-(10, 'Self-Help');
+(10, 'Self-Help'),
+(11, 'Psychology');
 
 -- --------------------------------------------------------
 
@@ -126,14 +129,42 @@ CREATE TABLE `issued_books` (
   `issue_date` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `issued_books`
+-- Table structure for table `returnbook`
 --
 
-INSERT INTO `issued_books` (`s_no`, `book_no`, `book_name`, `book_author`, `student_id`, `status`, `issue_date`) VALUES
-(1, 4518, 'Data structure', 'D S Gupta', 4, 1, '0000-00-00 00:00:00'),
-(20, 4518, 'Data structure', 'D S Gupta', 4, 1, '0000-00-00 00:00:00'),
-(22, 5231, 'Software engineering', 'M D Guptaa', 4, 1, '2121-03-03');
+CREATE TABLE `returnbook` (
+  `book_id` int(20) NOT NULL,
+  `book_no` int(20) NOT NULL,
+  `status` int(5) NOT NULL,
+  `date` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `returnbook`
+--
+
+INSERT INTO `returnbook` (`book_id`, `book_no`, `status`, `date`) VALUES
+(10, 123, 0, '2121-03-31'),
+(12, 123, 1, '2121-03-31'),
+(13, 123, 0, '2121-03-31'),
+(14, 4518, 0, '2121-03-31'),
+(15, 2025, 1, '2121-03-31'),
+(16, 2025, 0, '2121-03-31'),
+(17, 123, 1, '2121-03-31'),
+(18, 1010, 1, '2121-03-31'),
+(19, 1010, 1, '2121-03-31'),
+(20, 1333, 0, '2121-03-31'),
+(21, 5231, 0, '2121-03-31'),
+(22, 2040, 1, '2121-03-31'),
+(23, 1333, 1, '2121-03-31'),
+(24, 1333, 0, '2121-03-31'),
+(25, 1333, 1, '2121-03-31'),
+(26, 1010, 0, '2121-04-10'),
+(27, 123, 0, '2121-04-10'),
+(28, 1333, 0, '2121-04-10');
 
 -- --------------------------------------------------------
 
@@ -156,7 +187,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `mobile`, `address`) VALUES
 (4, 'user', 'user1@gmail.com', 'user@1234', 2147483644, 'XYZ Coloney, PQR Nagar , Jaipur'),
-(11, 'rohan', 'rohan@gmail.com', '1234', 123456789, 'Kota, Jaipur');
+(11, 'rohan', 'rohan@gmail.com', '12345', 123456789, 'Kota, Jaipur'),
+(12, 'Kevin feige', 'kevinfiege@gmail.com', 'Kevin1234', 2147483647, 'Marvel');
 
 --
 -- Indexes for dumped tables
@@ -200,6 +232,12 @@ ALTER TABLE `issued_books`
   ADD KEY `student_id` (`student_id`);
 
 --
+-- Indexes for table `returnbook`
+--
+ALTER TABLE `returnbook`
+  ADD PRIMARY KEY (`book_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -220,31 +258,37 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `authors`
 --
 ALTER TABLE `authors`
-  MODIFY `author_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `author_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `issued_books`
 --
 ALTER TABLE `issued_books`
-  MODIFY `s_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `s_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+--
+-- AUTO_INCREMENT for table `returnbook`
+--
+ALTER TABLE `returnbook`
+  MODIFY `book_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables

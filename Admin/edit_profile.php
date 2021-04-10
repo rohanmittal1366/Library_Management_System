@@ -48,7 +48,7 @@ while ($row = mysqli_fetch_assoc($query_run)) {
         }
 
         body {
-            background-image: url("./images/tbg1.jpg");
+            background-image: url("./images/testing3.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #cccccc;
@@ -111,18 +111,18 @@ while ($row = mysqli_fetch_assoc($query_run)) {
     <?php include '../header.php'; ?><br><br>
     <div class="row">
         <div class="col-md-4"> </div>
-        <div class="col-md-4">
+        <div class="col-md-4" style="background-color: rgb(197, 56, 51); padding: 30px">
             <form action="update_profile.php" method="post">
                 <div class="form-group">
-                    <label>Name:</label>
-                    <input type="text" class="form-control" value="<?php echo $name; ?>" name="name">
+                    <b> <label>Name:</label></b><br><br>
+                    <input type="text" class="form-control" value="<?php echo $name; ?>" name="name"><br>
                 </div>
                 <div class="form-group">
-                    <label>Email:</label>
-                    <input type="text" class="form-control" value="<?php echo $email; ?>" name="email" disabled>
+                    <b><label>Email:</label></b><br><br>
+                    <input type="text" class="form-control" value="<?php echo $email; ?>" name="email" disabled><br>
                 </div>
                 <div class="form-group">
-                    <label>Mobile:</label>
+                    <b><label>Mobile:</label></b><br><br>
                     <input type="text" class="form-control" value="<?php echo $mobile; ?>" name="mobile">
                 </div>
 

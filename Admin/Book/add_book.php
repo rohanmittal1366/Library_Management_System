@@ -20,17 +20,10 @@ if (!isset($_SESSION['email'])) {
 
 <head>
     <style type="text/css">
-        #side_bar {
-            background-color: whitesmoke;
-            padding: 50px;
-            width: 300px;
-            height: 450 px;
-        }
-
         body {
-            background-image: url("../images/tbg1.jpg");
+            background-image: url("../images/new_pic6.jpg");
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100% 750px;
             background-color: #cccccc;
         }
 
@@ -243,7 +236,7 @@ if (!isset($_SESSION['email'])) {
 
     <?php include '../../header.php'; ?><br>
     <div class="row">
-        <div class="col-md-4"></div>
+        <div class="col-md-5"></div>
         <div class="col-md-4">
             <form action="" method="post">
                 <div class="form-group">

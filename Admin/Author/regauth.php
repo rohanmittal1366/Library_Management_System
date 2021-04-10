@@ -35,13 +35,6 @@ $query = "select * from authors";
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style type="text/css">
-        #side_bar {
-            background-color: whitesmoke;
-            padding: 50px;
-            width: 300px;
-            height: 450 px;
-        }
-
         body {
             background-image: url("../images/xyz3.jpg");
             background-repeat: no-repeat;
@@ -53,6 +46,12 @@ $query = "select * from authors";
             width: 100%;
             border: #000000;
             background-color: white;
+        }
+
+        .col-md-8 {
+            overflow-x: auto;
+            height: 400px;
+
         }
     </style>
 </head>
